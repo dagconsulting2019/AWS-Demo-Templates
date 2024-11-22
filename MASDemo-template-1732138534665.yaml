@@ -1,0 +1,2042 @@
+---
+Metadata:
+  AWSToolsMetrics:
+    IaC_Generator: "arn:aws:cloudformation:us-east-1:975050159122:generatedTemplate/a9d264bb-dddb-455a-aea9-323889d2f071"
+Resources:
+  EC2VolumeAttachment00vol0ff81909fd8dcacc000Gh53r:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::EC2::VolumeAttachment"
+    DeletionPolicy: "Retain"
+    Properties:
+      InstanceId: "i-0fd94d97551ab2aab"
+      VolumeId: "vol-0ff81909fd8dcacc0"
+      Device: "/dev/xvda"
+  EC2Volume00vol03bb74849ef2a082100qmkAO:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::EC2::Volume"
+    DeletionPolicy: "Retain"
+    Properties:
+      MultiAttachEnabled: false
+      VolumeType: "gp3"
+      KmsKeyId: "arn:aws:kms:us-east-1:975050159122:key/7abeefb8-0673-4720-8dce-d7e0fc512d10"
+      Encrypted: true
+      Size: 2048
+      AutoEnableIO: false
+      AvailabilityZone: "us-east-1c"
+      Throughput: 125
+      Iops: 3000
+      Tags:
+      - Value: "pvc-6b4e64a1-43ff-45e1-85c0-6423e6f1ceb8"
+        Key: "kubernetes.io/created-for/pv/name"
+      - Value: "true"
+        Key: "ebs.csi.aws.com/cluster"
+      - Value: "pvc-6b4e64a1-43ff-45e1-85c0-6423e6f1ceb8"
+        Key: "CSIVolumeName"
+      - Value: "owned"
+        Key: "kubernetes.io/cluster/maspoc-b7pbx"
+      - Value: "openshift-storage"
+        Key: "kubernetes.io/created-for/pvc/namespace"
+      - Value: "maspoc-b7pbx"
+        Key: "KubernetesCluster"
+      - Value: "maspoc-b7pbx-dynamic-pvc-6b4e64a1-43ff-45e1-85c0-6423e6f1ceb8"
+        Key: "Name"
+      - Value: "ocs-deviceset-gp3-csi-2-data-0bwqg9"
+        Key: "kubernetes.io/created-for/pvc/name"
+  EC2VolumeAttachment00vol037a48266e09be41600q0F06:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::EC2::VolumeAttachment"
+    DeletionPolicy: "Retain"
+    Properties:
+      InstanceId: "i-0f0da620f13661d97"
+      VolumeId: "vol-037a48266e09be416"
+      Device: "/dev/xvda"
+  EC2Volume00vol009aec7bab0474eda00Ajq8F:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::EC2::Volume"
+    DeletionPolicy: "Retain"
+    Properties:
+      MultiAttachEnabled: false
+      VolumeType: "gp3"
+      KmsKeyId: "arn:aws:kms:us-east-1:975050159122:key/7abeefb8-0673-4720-8dce-d7e0fc512d10"
+      Encrypted: true
+      Size: 50
+      AutoEnableIO: false
+      AvailabilityZone: "us-east-1b"
+      Throughput: 125
+      Iops: 3000
+      Tags:
+      - Value: "pvc-f0290e2d-7ea1-4eca-8729-45197c14ac85"
+        Key: "kubernetes.io/created-for/pv/name"
+      - Value: "maspoc-b7pbx-dynamic-pvc-f0290e2d-7ea1-4eca-8729-45197c14ac85"
+        Key: "Name"
+      - Value: "maspoc-b7pbx"
+        Key: "KubernetesCluster"
+      - Value: "owned"
+        Key: "kubernetes.io/cluster/maspoc-b7pbx"
+      - Value: "openshift-storage"
+        Key: "kubernetes.io/created-for/pvc/namespace"
+      - Value: "pvc-f0290e2d-7ea1-4eca-8729-45197c14ac85"
+        Key: "CSIVolumeName"
+      - Value: "rook-ceph-mon-c"
+        Key: "kubernetes.io/created-for/pvc/name"
+      - Value: "true"
+        Key: "ebs.csi.aws.com/cluster"
+  EC2VolumeAttachment00vol005e2f3d1b29a8ac000NLrxO:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::EC2::VolumeAttachment"
+    DeletionPolicy: "Retain"
+    Properties:
+      InstanceId: "i-02b01aa38f7cbdcab"
+      VolumeId: "vol-005e2f3d1b29a8ac0"
+      Device: "/dev/xvda"
+  EC2SecurityGroup00sg012cb0ffdf31dcc4500lcXbu:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::EC2::SecurityGroup"
+    DeletionPolicy: "Retain"
+    Properties:
+      GroupDescription: "Created By OpenShift Installer"
+      GroupName: "terraform-20241029185425171000000001"
+      VpcId:
+        Ref: "EC2VPC00vpc033689ea0213830c000vTw7k"
+      SecurityGroupIngress:
+      - IpProtocol: "udp"
+        Description: "Created By OpenShift Installer"
+        FromPort: 6081
+        SourceSecurityGroupId: "sg-012cb0ffdf31dcc45"
+        ToPort: 6081
+        SourceSecurityGroupOwnerId: "975050159122"
+      - IpProtocol: "udp"
+        Description: "Created By OpenShift Installer"
+        FromPort: 6081
+        SourceSecurityGroupId: "sg-0f0162887ec728871"
+        ToPort: 6081
+        SourceSecurityGroupOwnerId: "975050159122"
+      - CidrIp:
+          Fn::GetAtt:
+          - "EC2VPC00vpc033689ea0213830c000vTw7k"
+          - "CidrBlock"
+        IpProtocol: "tcp"
+        Description: "Created By OpenShift Installer"
+        FromPort: 6443
+        ToPort: 6443
+      - IpProtocol: "udp"
+        Description: "Created By OpenShift Installer"
+        FromPort: 9000
+        SourceSecurityGroupId: "sg-012cb0ffdf31dcc45"
+        ToPort: 9999
+        SourceSecurityGroupOwnerId: "975050159122"
+      - IpProtocol: "udp"
+        Description: "Created By OpenShift Installer"
+        FromPort: 9000
+        SourceSecurityGroupId: "sg-0f0162887ec728871"
+        ToPort: 9999
+        SourceSecurityGroupOwnerId: "975050159122"
+      - IpProtocol: "tcp"
+        Description: "Created By OpenShift Installer"
+        FromPort: 2379
+        SourceSecurityGroupId: "sg-012cb0ffdf31dcc45"
+        ToPort: 2380
+        SourceSecurityGroupOwnerId: "975050159122"
+      - IpProtocol: "tcp"
+        Description: "Created By OpenShift Installer"
+        FromPort: 10257
+        SourceSecurityGroupId: "sg-012cb0ffdf31dcc45"
+        ToPort: 10257
+        SourceSecurityGroupOwnerId: "975050159122"
+      - IpProtocol: "tcp"
+        Description: "Created By OpenShift Installer"
+        FromPort: 10257
+        SourceSecurityGroupId: "sg-0f0162887ec728871"
+        ToPort: 10257
+        SourceSecurityGroupOwnerId: "975050159122"
+      - CidrIp:
+          Fn::GetAtt:
+          - "EC2VPC00vpc033689ea0213830c000vTw7k"
+          - "CidrBlock"
+        IpProtocol: "tcp"
+        Description: "Created By OpenShift Installer"
+        FromPort: 22623
+        ToPort: 22623
+      - IpProtocol: "udp"
+        Description: "Created By OpenShift Installer"
+        FromPort: 30000
+        SourceSecurityGroupId: "sg-012cb0ffdf31dcc45"
+        ToPort: 32767
+        SourceSecurityGroupOwnerId: "975050159122"
+      - IpProtocol: "udp"
+        Description: "Created By OpenShift Installer"
+        FromPort: 30000
+        SourceSecurityGroupId: "sg-0f0162887ec728871"
+        ToPort: 32767
+        SourceSecurityGroupOwnerId: "975050159122"
+      - IpProtocol: "udp"
+        Description: "Created By OpenShift Installer"
+        FromPort: 4789
+        SourceSecurityGroupId: "sg-012cb0ffdf31dcc45"
+        ToPort: 4789
+        SourceSecurityGroupOwnerId: "975050159122"
+      - IpProtocol: "udp"
+        Description: "Created By OpenShift Installer"
+        FromPort: 4789
+        SourceSecurityGroupId: "sg-0f0162887ec728871"
+        ToPort: 4789
+        SourceSecurityGroupOwnerId: "975050159122"
+      - CidrIp:
+          Fn::GetAtt:
+          - "EC2VPC00vpc033689ea0213830c000vTw7k"
+          - "CidrBlock"
+        IpProtocol: "icmp"
+        Description: "Created By OpenShift Installer"
+        FromPort: -1
+        ToPort: -1
+      - IpProtocol: "tcp"
+        Description: "Created By OpenShift Installer"
+        FromPort: 10259
+        SourceSecurityGroupId: "sg-012cb0ffdf31dcc45"
+        ToPort: 10259
+        SourceSecurityGroupOwnerId: "975050159122"
+      - IpProtocol: "tcp"
+        Description: "Created By OpenShift Installer"
+        FromPort: 10259
+        SourceSecurityGroupId: "sg-0f0162887ec728871"
+        ToPort: 10259
+        SourceSecurityGroupOwnerId: "975050159122"
+      - IpProtocol: "tcp"
+        Description: "Created By OpenShift Installer"
+        FromPort: 30000
+        SourceSecurityGroupId: "sg-012cb0ffdf31dcc45"
+        ToPort: 32767
+        SourceSecurityGroupOwnerId: "975050159122"
+      - IpProtocol: "tcp"
+        Description: "Created By OpenShift Installer"
+        FromPort: 30000
+        SourceSecurityGroupId: "sg-0f0162887ec728871"
+        ToPort: 32767
+        SourceSecurityGroupOwnerId: "975050159122"
+      - IpProtocol: "-1"
+        FromPort: -1
+        SourceSecurityGroupId: "sg-0162ce9c72fe97207"
+        ToPort: -1
+        SourceSecurityGroupOwnerId: "975050159122"
+      - IpProtocol: "-1"
+        FromPort: -1
+        SourceSecurityGroupId: "sg-046b7f01e98c0766c"
+        ToPort: -1
+        SourceSecurityGroupOwnerId: "975050159122"
+      - IpProtocol: "-1"
+        FromPort: -1
+        SourceSecurityGroupId: "sg-023a5caf9632ddb69"
+        ToPort: -1
+        SourceSecurityGroupOwnerId: "975050159122"
+      - CidrIp:
+          Fn::GetAtt:
+          - "EC2VPC00vpc033689ea0213830c000vTw7k"
+          - "CidrBlock"
+        IpProtocol: "tcp"
+        Description: "Created By OpenShift Installer"
+        FromPort: 22
+        ToPort: 22
+      - IpProtocol: "tcp"
+        Description: "Created By OpenShift Installer"
+        FromPort: 9000
+        SourceSecurityGroupId: "sg-012cb0ffdf31dcc45"
+        ToPort: 9999
+        SourceSecurityGroupOwnerId: "975050159122"
+      - IpProtocol: "tcp"
+        Description: "Created By OpenShift Installer"
+        FromPort: 9000
+        SourceSecurityGroupId: "sg-0f0162887ec728871"
+        ToPort: 9999
+        SourceSecurityGroupOwnerId: "975050159122"
+      - IpProtocol: "tcp"
+        Description: "Created By OpenShift Installer"
+        FromPort: 10250
+        SourceSecurityGroupId: "sg-012cb0ffdf31dcc45"
+        ToPort: 10250
+        SourceSecurityGroupOwnerId: "975050159122"
+      - IpProtocol: "tcp"
+        Description: "Created By OpenShift Installer"
+        FromPort: 10250
+        SourceSecurityGroupId: "sg-0f0162887ec728871"
+        ToPort: 10250
+        SourceSecurityGroupOwnerId: "975050159122"
+      - IpProtocol: "tcp"
+        Description: "Created By OpenShift Installer"
+        FromPort: 6641
+        SourceSecurityGroupId: "sg-012cb0ffdf31dcc45"
+        ToPort: 6642
+        SourceSecurityGroupOwnerId: "975050159122"
+      - IpProtocol: "tcp"
+        Description: "Created By OpenShift Installer"
+        FromPort: 6641
+        SourceSecurityGroupId: "sg-0f0162887ec728871"
+        ToPort: 6642
+        SourceSecurityGroupOwnerId: "975050159122"
+      - IpProtocol: "50"
+        Description: "Created By OpenShift Installer"
+        FromPort: -1
+        SourceSecurityGroupId: "sg-012cb0ffdf31dcc45"
+        ToPort: -1
+        SourceSecurityGroupOwnerId: "975050159122"
+      - IpProtocol: "50"
+        Description: "Created By OpenShift Installer"
+        FromPort: -1
+        SourceSecurityGroupId: "sg-0f0162887ec728871"
+        ToPort: -1
+        SourceSecurityGroupOwnerId: "975050159122"
+      - IpProtocol: "udp"
+        Description: "Created By OpenShift Installer"
+        FromPort: 4500
+        SourceSecurityGroupId: "sg-012cb0ffdf31dcc45"
+        ToPort: 4500
+        SourceSecurityGroupOwnerId: "975050159122"
+      - IpProtocol: "udp"
+        Description: "Created By OpenShift Installer"
+        FromPort: 4500
+        SourceSecurityGroupId: "sg-0f0162887ec728871"
+        ToPort: 4500
+        SourceSecurityGroupOwnerId: "975050159122"
+      - IpProtocol: "udp"
+        Description: "Created By OpenShift Installer"
+        FromPort: 500
+        SourceSecurityGroupId: "sg-012cb0ffdf31dcc45"
+        ToPort: 500
+        SourceSecurityGroupOwnerId: "975050159122"
+      - IpProtocol: "udp"
+        Description: "Created By OpenShift Installer"
+        FromPort: 500
+        SourceSecurityGroupId: "sg-0f0162887ec728871"
+        ToPort: 500
+        SourceSecurityGroupOwnerId: "975050159122"
+      SecurityGroupEgress:
+      - CidrIp: "0.0.0.0/0"
+        IpProtocol: "-1"
+        Description: "Created By OpenShift Installer"
+        FromPort: -1
+        ToPort: -1
+      Tags:
+      - Value: "owned"
+        Key: "kubernetes.io/cluster/maspoc-b7pbx"
+      - Value: "maspoc-b7pbx-master-sg"
+        Key: "Name"
+  EC2Volume00vol005e2f3d1b29a8ac000pUJ5Q:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::EC2::Volume"
+    DeletionPolicy: "Retain"
+    Properties:
+      MultiAttachEnabled: false
+      SnapshotId: "snap-01720b82512455a1c"
+      VolumeType: "gp3"
+      KmsKeyId: "arn:aws:kms:us-east-1:975050159122:key/7abeefb8-0673-4720-8dce-d7e0fc512d10"
+      Encrypted: true
+      Size: 120
+      AutoEnableIO: true
+      AvailabilityZone: "us-east-1c"
+      Throughput: 125
+      Iops: 3000
+      Tags:
+      - Value: "maspoc-b7pbx-worker-us-east-1c-x6d94"
+        Key: "Name"
+      - Value: "owned"
+        Key: "kubernetes.io/cluster/maspoc-b7pbx"
+  EC2SecurityGroup00sg0f0162887ec72887100xEoae:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::EC2::SecurityGroup"
+    DeletionPolicy: "Retain"
+    Properties:
+      GroupDescription: "Created By OpenShift Installer"
+      GroupName: "terraform-20241029185425262900000002"
+      VpcId:
+        Ref: "EC2VPC00vpc033689ea0213830c000vTw7k"
+      SecurityGroupIngress:
+      - IpProtocol: "udp"
+        Description: "Created By OpenShift Installer"
+        FromPort: 6081
+        SourceSecurityGroupId: "sg-012cb0ffdf31dcc45"
+        ToPort: 6081
+        SourceSecurityGroupOwnerId: "975050159122"
+      - IpProtocol: "udp"
+        Description: "Created By OpenShift Installer"
+        FromPort: 6081
+        SourceSecurityGroupId: "sg-0f0162887ec728871"
+        ToPort: 6081
+        SourceSecurityGroupOwnerId: "975050159122"
+      - IpProtocol: "udp"
+        Description: "Created By OpenShift Installer"
+        FromPort: 9000
+        SourceSecurityGroupId: "sg-012cb0ffdf31dcc45"
+        ToPort: 9999
+        SourceSecurityGroupOwnerId: "975050159122"
+      - IpProtocol: "udp"
+        Description: "Created By OpenShift Installer"
+        FromPort: 9000
+        SourceSecurityGroupId: "sg-0f0162887ec728871"
+        ToPort: 9999
+        SourceSecurityGroupOwnerId: "975050159122"
+      - IpProtocol: "udp"
+        Description: "Created By OpenShift Installer"
+        FromPort: 30000
+        SourceSecurityGroupId: "sg-012cb0ffdf31dcc45"
+        ToPort: 32767
+        SourceSecurityGroupOwnerId: "975050159122"
+      - IpProtocol: "udp"
+        Description: "Created By OpenShift Installer"
+        FromPort: 30000
+        SourceSecurityGroupId: "sg-0f0162887ec728871"
+        ToPort: 32767
+        SourceSecurityGroupOwnerId: "975050159122"
+      - IpProtocol: "udp"
+        Description: "Created By OpenShift Installer"
+        FromPort: 4789
+        SourceSecurityGroupId: "sg-012cb0ffdf31dcc45"
+        ToPort: 4789
+        SourceSecurityGroupOwnerId: "975050159122"
+      - IpProtocol: "udp"
+        Description: "Created By OpenShift Installer"
+        FromPort: 4789
+        SourceSecurityGroupId: "sg-0f0162887ec728871"
+        ToPort: 4789
+        SourceSecurityGroupOwnerId: "975050159122"
+      - CidrIp:
+          Fn::GetAtt:
+          - "EC2VPC00vpc033689ea0213830c000vTw7k"
+          - "CidrBlock"
+        IpProtocol: "icmp"
+        Description: "Created By OpenShift Installer"
+        FromPort: -1
+        ToPort: -1
+      - IpProtocol: "tcp"
+        Description: "Created By OpenShift Installer"
+        FromPort: 30000
+        SourceSecurityGroupId: "sg-012cb0ffdf31dcc45"
+        ToPort: 32767
+        SourceSecurityGroupOwnerId: "975050159122"
+      - IpProtocol: "tcp"
+        Description: "Created By OpenShift Installer"
+        FromPort: 30000
+        SourceSecurityGroupId: "sg-0f0162887ec728871"
+        ToPort: 32767
+        SourceSecurityGroupOwnerId: "975050159122"
+      - IpProtocol: "-1"
+        FromPort: -1
+        SourceSecurityGroupId: "sg-0162ce9c72fe97207"
+        ToPort: -1
+        SourceSecurityGroupOwnerId: "975050159122"
+      - IpProtocol: "-1"
+        FromPort: -1
+        SourceSecurityGroupId: "sg-046b7f01e98c0766c"
+        ToPort: -1
+        SourceSecurityGroupOwnerId: "975050159122"
+      - IpProtocol: "-1"
+        FromPort: -1
+        SourceSecurityGroupId: "sg-023a5caf9632ddb69"
+        ToPort: -1
+        SourceSecurityGroupOwnerId: "975050159122"
+      - CidrIp:
+          Fn::GetAtt:
+          - "EC2VPC00vpc033689ea0213830c000vTw7k"
+          - "CidrBlock"
+        IpProtocol: "tcp"
+        Description: "Created By OpenShift Installer"
+        FromPort: 22
+        ToPort: 22
+      - IpProtocol: "tcp"
+        Description: "Created By OpenShift Installer"
+        FromPort: 9000
+        SourceSecurityGroupId: "sg-012cb0ffdf31dcc45"
+        ToPort: 9999
+        SourceSecurityGroupOwnerId: "975050159122"
+      - IpProtocol: "tcp"
+        Description: "Created By OpenShift Installer"
+        FromPort: 9000
+        SourceSecurityGroupId: "sg-0f0162887ec728871"
+        ToPort: 9999
+        SourceSecurityGroupOwnerId: "975050159122"
+      - IpProtocol: "tcp"
+        Description: "Created By OpenShift Installer"
+        FromPort: 10250
+        SourceSecurityGroupId: "sg-012cb0ffdf31dcc45"
+        ToPort: 10250
+        SourceSecurityGroupOwnerId: "975050159122"
+      - IpProtocol: "tcp"
+        Description: "Created By OpenShift Installer"
+        FromPort: 10250
+        SourceSecurityGroupId: "sg-0f0162887ec728871"
+        ToPort: 10250
+        SourceSecurityGroupOwnerId: "975050159122"
+      - IpProtocol: "50"
+        Description: "Created By OpenShift Installer"
+        FromPort: -1
+        SourceSecurityGroupId: "sg-0f0162887ec728871"
+        ToPort: -1
+        SourceSecurityGroupOwnerId: "975050159122"
+      - IpProtocol: "50"
+        Description: "Created By OpenShift Installer"
+        FromPort: -1
+        SourceSecurityGroupId: "sg-012cb0ffdf31dcc45"
+        ToPort: -1
+        SourceSecurityGroupOwnerId: "975050159122"
+      - IpProtocol: "udp"
+        Description: "Created By OpenShift Installer"
+        FromPort: 4500
+        SourceSecurityGroupId: "sg-012cb0ffdf31dcc45"
+        ToPort: 4500
+        SourceSecurityGroupOwnerId: "975050159122"
+      - IpProtocol: "udp"
+        Description: "Created By OpenShift Installer"
+        FromPort: 4500
+        SourceSecurityGroupId: "sg-0f0162887ec728871"
+        ToPort: 4500
+        SourceSecurityGroupOwnerId: "975050159122"
+      - IpProtocol: "udp"
+        Description: "Created By OpenShift Installer"
+        FromPort: 500
+        SourceSecurityGroupId: "sg-012cb0ffdf31dcc45"
+        ToPort: 500
+        SourceSecurityGroupOwnerId: "975050159122"
+      - IpProtocol: "udp"
+        Description: "Created By OpenShift Installer"
+        FromPort: 500
+        SourceSecurityGroupId: "sg-0f0162887ec728871"
+        ToPort: 500
+        SourceSecurityGroupOwnerId: "975050159122"
+      SecurityGroupEgress:
+      - CidrIp: "0.0.0.0/0"
+        IpProtocol: "-1"
+        Description: "Created By OpenShift Installer"
+        FromPort: -1
+        ToPort: -1
+      Tags:
+      - Value: "maspoc-b7pbx-worker-sg"
+        Key: "Name"
+      - Value: "owned"
+        Key: "kubernetes.io/cluster/maspoc-b7pbx"
+  EC2Subnet00subnet0b9366d5af8b353ea00mreUT:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::EC2::Subnet"
+    DeletionPolicy: "Retain"
+    Properties:
+      VpcId:
+        Ref: "EC2VPC00vpc033689ea0213830c000vTw7k"
+      MapPublicIpOnLaunch: false
+      EnableDns64: false
+      AvailabilityZoneId: "use1-az6"
+      PrivateDnsNameOptionsOnLaunch:
+        EnableResourceNameDnsARecord: false
+        HostnameType: "ip-name"
+        EnableResourceNameDnsAAAARecord: false
+      CidrBlock: "10.0.1.0/24"
+      Ipv6Native: false
+      Tags:
+      - Value: "owned"
+        Key: "kubernetes.io/cluster/maspoc-b7pbx"
+      - Value: ""
+        Key: "kubernetes.io/role/internal-elb"
+      - Value: "maspoc-b7pbx-private-us-east-1b"
+        Key: "Name"
+  IAMUser00maspocb7pbxopenshiftingressmmqv400N4QO7:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::IAM::User"
+    DeletionPolicy: "Retain"
+    Properties:
+      Path: "/"
+      Policies:
+      - PolicyDocument:
+          Version: "2012-10-17"
+          Statement:
+          - Resource: "*"
+            Action:
+            - "elasticloadbalancing:DescribeLoadBalancers"
+            - "route53:ListHostedZones"
+            - "route53:ListTagsForResources"
+            - "route53:ChangeResourceRecordSets"
+            - "tag:GetResources"
+            - "sts:AssumeRole"
+            Effect: "Allow"
+          - Resource: "arn:aws:iam::975050159122:user/maspoc-b7pbx-openshift-ingress-mmqv4"
+            Action:
+            - "iam:GetUser"
+            Effect: "Allow"
+        PolicyName: "maspoc-b7pbx-openshift-ingress-mmqv4-policy"
+      UserName: "maspoc-b7pbx-openshift-ingress-mmqv4"
+      Tags:
+      - Value: "owned"
+        Key: "kubernetes.io/cluster/maspoc-b7pbx"
+  EC2VolumeAttachment00vol0673e182abc9ee3c400Y3gpV:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::EC2::VolumeAttachment"
+    DeletionPolicy: "Retain"
+    Properties:
+      InstanceId: "i-01ec83d0a2cf89422"
+      VolumeId: "vol-0673e182abc9ee3c4"
+      Device: "/dev/xvda"
+  EC2Volume00vol0fb18f622815e516400D1iZP:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::EC2::Volume"
+    DeletionPolicy: "Retain"
+    Properties:
+      MultiAttachEnabled: false
+      VolumeType: "gp3"
+      KmsKeyId: "arn:aws:kms:us-east-1:975050159122:key/7abeefb8-0673-4720-8dce-d7e0fc512d10"
+      Encrypted: true
+      Size: 2048
+      AutoEnableIO: false
+      AvailabilityZone: "us-east-1a"
+      Throughput: 125
+      Iops: 3000
+      Tags:
+      - Value: "pvc-a9558fa7-3407-4688-8dc5-b26abb7dec82"
+        Key: "CSIVolumeName"
+      - Value: "maspoc-b7pbx-dynamic-pvc-a9558fa7-3407-4688-8dc5-b26abb7dec82"
+        Key: "Name"
+      - Value: "maspoc-b7pbx"
+        Key: "KubernetesCluster"
+      - Value: "ocs-deviceset-gp3-csi-1-data-0zvwxg"
+        Key: "kubernetes.io/created-for/pvc/name"
+      - Value: "owned"
+        Key: "kubernetes.io/cluster/maspoc-b7pbx"
+      - Value: "openshift-storage"
+        Key: "kubernetes.io/created-for/pvc/namespace"
+      - Value: "pvc-a9558fa7-3407-4688-8dc5-b26abb7dec82"
+        Key: "kubernetes.io/created-for/pv/name"
+      - Value: "true"
+        Key: "ebs.csi.aws.com/cluster"
+  IAMUser00maspocb7pbxopenshiftimageregistryxb79500ZU6W4:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::IAM::User"
+    DeletionPolicy: "Retain"
+    Properties:
+      Path: "/"
+      Policies:
+      - PolicyDocument:
+          Version: "2012-10-17"
+          Statement:
+          - Resource: "*"
+            Action:
+            - "s3:CreateBucket"
+            - "s3:DeleteBucket"
+            - "s3:PutBucketTagging"
+            - "s3:GetBucketTagging"
+            - "s3:PutBucketPublicAccessBlock"
+            - "s3:GetBucketPublicAccessBlock"
+            - "s3:PutEncryptionConfiguration"
+            - "s3:GetEncryptionConfiguration"
+            - "s3:PutLifecycleConfiguration"
+            - "s3:GetLifecycleConfiguration"
+            - "s3:GetBucketLocation"
+            - "s3:ListBucket"
+            - "s3:GetObject"
+            - "s3:PutObject"
+            - "s3:DeleteObject"
+            - "s3:ListBucketMultipartUploads"
+            - "s3:AbortMultipartUpload"
+            - "s3:ListMultipartUploadParts"
+            Effect: "Allow"
+          - Resource: "arn:aws:iam::975050159122:user/maspoc-b7pbx-openshift-image-registry-xb795"
+            Action:
+            - "iam:GetUser"
+            Effect: "Allow"
+        PolicyName: "maspoc-b7pbx-openshift-image-registry-xb795-policy"
+      UserName: "maspoc-b7pbx-openshift-image-registry-xb795"
+      Tags:
+      - Value: "owned"
+        Key: "kubernetes.io/cluster/maspoc-b7pbx"
+  IAMInstanceProfile00maspocb7pbxmasterprofile00p8JUW:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::IAM::InstanceProfile"
+    DeletionPolicy: "Retain"
+    Properties:
+      Path: "/"
+      Roles:
+      - Ref: "IAMRole00maspocb7pbxmasterrole00b087F"
+      InstanceProfileName: "maspoc-b7pbx-master-profile"
+  EC2NetworkInterface00eni0c4f9fd3040461d5000jID3o:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::EC2::NetworkInterface"
+    DeletionPolicy: "Retain"
+    Properties:
+      Description: "Created By OpenShift Installer"
+      PrivateIpAddress: "10.0.1.24"
+      PrivateIpAddresses:
+      - PrivateIpAddress: "10.0.1.24"
+        Primary: true
+      SecondaryPrivateIpAddressCount: 0
+      Ipv6PrefixCount: 0
+      Ipv4Prefixes: []
+      Ipv4PrefixCount: 0
+      GroupSet:
+      - "sg-012cb0ffdf31dcc45"
+      Ipv6Prefixes: []
+      SubnetId:
+        Ref: "EC2Subnet00subnet0b9366d5af8b353ea00mreUT"
+      SourceDestCheck: true
+      InterfaceType: "interface"
+      Tags:
+      - Value: "owned"
+        Key: "kubernetes.io/cluster/maspoc-b7pbx"
+      - Value: "maspoc-b7pbx-master-1"
+        Key: "Name"
+  IAMInstanceProfile00maspocb7pbxworkerprofile00Xaqx9:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::IAM::InstanceProfile"
+    DeletionPolicy: "Retain"
+    Properties:
+      Path: "/"
+      Roles:
+      - Ref: "IAMRole00maspocb7pbxworkerrole00oPQqd"
+      InstanceProfileName: "maspoc-b7pbx-worker-profile"
+  EC2NetworkInterface00eni057b0222dae4fd5d800TV1n0:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::EC2::NetworkInterface"
+    DeletionPolicy: "Retain"
+    Properties:
+      Description: ""
+      PrivateIpAddress: "10.0.0.215"
+      PrivateIpAddresses:
+      - PrivateIpAddress: "10.0.0.215"
+        Primary: true
+      SecondaryPrivateIpAddressCount: 0
+      Ipv6PrefixCount: 0
+      Ipv4Prefixes: []
+      Ipv4PrefixCount: 0
+      GroupSet:
+      - "sg-0f0162887ec728871"
+      Ipv6Prefixes: []
+      SubnetId:
+        Ref: "EC2Subnet00subnet0cc3549ee6daa49ac008lMNt"
+      SourceDestCheck: true
+      InterfaceType: "interface"
+      Tags: []
+  EC2Volume00vol01850b13edc8cce8a00RxYS5:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::EC2::Volume"
+    DeletionPolicy: "Retain"
+    Properties:
+      MultiAttachEnabled: false
+      VolumeType: "gp3"
+      KmsKeyId: "arn:aws:kms:us-east-1:975050159122:key/7abeefb8-0673-4720-8dce-d7e0fc512d10"
+      Encrypted: true
+      Size: 2048
+      AutoEnableIO: false
+      AvailabilityZone: "us-east-1b"
+      Throughput: 125
+      Iops: 3000
+      Tags:
+      - Value: "pvc-31441ba4-f750-4e03-94e6-fc1e2e8f03b1"
+        Key: "CSIVolumeName"
+      - Value: "maspoc-b7pbx-dynamic-pvc-31441ba4-f750-4e03-94e6-fc1e2e8f03b1"
+        Key: "Name"
+      - Value: "true"
+        Key: "ebs.csi.aws.com/cluster"
+      - Value: "ocs-deviceset-gp3-csi-0-data-0vd5kk"
+        Key: "kubernetes.io/created-for/pvc/name"
+      - Value: "pvc-31441ba4-f750-4e03-94e6-fc1e2e8f03b1"
+        Key: "kubernetes.io/created-for/pv/name"
+      - Value: "maspoc-b7pbx"
+        Key: "KubernetesCluster"
+      - Value: "openshift-storage"
+        Key: "kubernetes.io/created-for/pvc/namespace"
+      - Value: "owned"
+        Key: "kubernetes.io/cluster/maspoc-b7pbx"
+  EC2Volume00vol037a48266e09be41600usEAb:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::EC2::Volume"
+    DeletionPolicy: "Retain"
+    Properties:
+      MultiAttachEnabled: false
+      SnapshotId: "snap-01720b82512455a1c"
+      VolumeType: "gp3"
+      KmsKeyId: "arn:aws:kms:us-east-1:975050159122:key/7abeefb8-0673-4720-8dce-d7e0fc512d10"
+      Encrypted: true
+      Size: 120
+      AutoEnableIO: true
+      AvailabilityZone: "us-east-1a"
+      Throughput: 125
+      Iops: 3000
+      Tags:
+      - Value: "maspoc-b7pbx-worker-us-east-1a-2n8sf"
+        Key: "Name"
+      - Value: "owned"
+        Key: "kubernetes.io/cluster/maspoc-b7pbx"
+  EC2Volume00vol0673e182abc9ee3c400bRWci:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::EC2::Volume"
+    DeletionPolicy: "Retain"
+    Properties:
+      MultiAttachEnabled: false
+      SnapshotId: "snap-01720b82512455a1c"
+      VolumeType: "gp3"
+      KmsKeyId: "arn:aws:kms:us-east-1:975050159122:key/7abeefb8-0673-4720-8dce-d7e0fc512d10"
+      Encrypted: true
+      Size: 120
+      AutoEnableIO: true
+      AvailabilityZone: "us-east-1b"
+      Throughput: 125
+      Iops: 3000
+      Tags:
+      - Value: "maspoc-b7pbx-worker-us-east-1b-l7d9b"
+        Key: "Name"
+      - Value: "owned"
+        Key: "kubernetes.io/cluster/maspoc-b7pbx"
+  KMSKey007abeefb8067347208dced7e0fc512d1000mHi2M:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::KMS::Key"
+    DeletionPolicy: "Retain"
+    Properties:
+      Origin: "AWS_KMS"
+      MultiRegion: false
+      Description: "Default key that protects my EBS volumes when no other key is\
+        \ defined"
+      KeyPolicy:
+        Version: "2012-10-17"
+        Statement:
+        - Condition:
+            StringEquals:
+              kms:ViaService: "ec2.us-east-1.amazonaws.com"
+              kms:CallerAccount: "975050159122"
+          Resource: "*"
+          Action:
+          - "kms:Encrypt"
+          - "kms:Decrypt"
+          - "kms:ReEncrypt*"
+          - "kms:GenerateDataKey*"
+          - "kms:CreateGrant"
+          - "kms:DescribeKey"
+          Effect: "Allow"
+          Principal:
+            AWS: "*"
+          Sid: "Allow access through EBS for all principals in the account that are\
+            \ authorized to use EBS"
+        - Resource: "*"
+          Action:
+          - "kms:Describe*"
+          - "kms:Get*"
+          - "kms:List*"
+          - "kms:RevokeGrant"
+          Effect: "Allow"
+          Principal:
+            AWS: "arn:aws:iam::975050159122:root"
+          Sid: "Allow direct access to key metadata to the account"
+        Id: "auto-ebs-2"
+      KeySpec: "SYMMETRIC_DEFAULT"
+      Enabled: true
+      EnableKeyRotation: true
+      KeyUsage: "ENCRYPT_DECRYPT"
+      Tags: []
+  EC2NetworkInterface00eni073aff06e86ddd17100CmAcO:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::EC2::NetworkInterface"
+    DeletionPolicy: "Retain"
+    Properties:
+      Description: ""
+      PrivateIpAddress: "10.0.2.16"
+      PrivateIpAddresses:
+      - PrivateIpAddress: "10.0.2.16"
+        Primary: true
+      SecondaryPrivateIpAddressCount: 0
+      Ipv6PrefixCount: 0
+      Ipv4Prefixes: []
+      Ipv4PrefixCount: 0
+      GroupSet:
+      - "sg-0f0162887ec728871"
+      Ipv6Prefixes: []
+      SubnetId:
+        Ref: "EC2Subnet00subnet0a476f6ccc1bac41c00IAx6N"
+      SourceDestCheck: true
+      InterfaceType: "interface"
+      Tags: []
+  EC2VolumeAttachment00vol03bb74849ef2a082100aGGA6:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::EC2::VolumeAttachment"
+    DeletionPolicy: "Retain"
+    Properties:
+      InstanceId: "i-02b01aa38f7cbdcab"
+      VolumeId: "vol-03bb74849ef2a0821"
+      Device: "/dev/xvdab"
+  EC2Instance00i0f0da620f13661d9700gExxd:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::EC2::Instance"
+    DeletionPolicy: "Retain"
+    Properties:
+      Tenancy: "default"
+      SecurityGroups:
+      - "terraform-20241029185425262900000002"
+      PrivateIpAddress: "10.0.0.215"
+      UserData: "eyJpZ25pdGlvbiI6eyJjb25maWciOnsibWVyZ2UiOlt7InNvdXJjZSI6Imh0dHBzOi8vYXBpLWludC5tYXNwb2MubWFzZGVtby1pYm0uY29tOjIyNjIzL2NvbmZpZy93b3JrZXIifV19LCJzZWN1cml0eSI6eyJ0bHMiOnsiY2VydGlmaWNhdGVBdXRob3JpdGllcyI6W3sic291cmNlIjoiZGF0YTp0ZXh0L3BsYWluO2NoYXJzZXQ9dXRmLTg7YmFzZTY0LExTMHRMUzFDUlVkSlRpQkRSVkpVU1VaSlEwRlVSUzB0TFMwdENrMUpTVVJGUkVORFFXWnBaMEYzU1VKQlowbEpTVnBPYzA4cmVVVnJSR3QzUkZGWlNrdHZXa2xvZG1OT1FWRkZURUpSUVhkS2FrVlRUVUpCUjBFeFZVVUtRM2hOU21JelFteGliazV2WVZkYU1FMVNRWGRFWjFsRVZsRlJSRVYzWkhsaU1qa3dURmRPYUUxQ05GaEVWRWt3VFZSQmVVOVVSVFJPVkUxM1RXeHZXQXBFVkUwd1RWUkJlVTU2UlRST1ZFMTNUV3h2ZDBwcVJWTk5Ra0ZIUVRGVlJVTjRUVXBpTTBKc1ltNU9iMkZYV2pCTlVrRjNSR2RaUkZaUlVVUkZkMlI1Q21JeU9UQk1WMDVvVFVsSlFrbHFRVTVDWjJ0eGFHdHBSemwzTUVKQlVVVkdRVUZQUTBGUk9FRk5TVWxDUTJkTFEwRlJSVUZ6VnpWVE5rVmhLMDA1TmlzS2IwTkJLM2hSTXpoU2JUUTBjbmRvWTBKcWVXa3ZaMlZ0Y0VoR2NVbFBlbUl6WW5scmJHRm5hVnA0UWtNeWRIZEdhalJXZWpkR2VtTjJTek5tWmtkWFpBcFlabHBrTTNkQ2RYWk9OblJNWjFnM01FMVFjQ3RVUkZSNGVrRlhRVVV2YVdnM1ZraFRWR3RHZDBoV2FtRlVXV3RuU1RKWWVqaHVVMFIzTUdwdE5sbHpDbk4zVVM5V1kxWkVibWxQUjFKSlV6SjVVSGwzYUU4MFZEQkxaV0pGU0c5aGIwb3JkVmN4ZGtsMU5rYzVTMmhJYTFkVVlUVXJVRTg0U1c1QmIxQmxTelVLWnpKWVJ6aGlRVmhJZGtJNFNFMUZZMHMwWkVvdlMxZzFaVzFDSzBKTWRqY3pRazFoY2tOU0wyTnlUbkpxYW01SU0ya3hXRGxaTjNCQlNXWkNiSEpMUXdvMmNrOUJlVUY1VkhKVlRIcFdVSEJzVWpSTVVGbGlkRWxXSzFReVYybE1VMGxMWmtORUsxbFNkSHBWWWtkNmVFbE1WMVZWYkV4aFNqUkNVelJVZFZGakNqTm1ZbXhWV214bWIxRkpSRUZSUVVKdk1FbDNVVVJCVDBKblRsWklVVGhDUVdZNFJVSkJUVU5CY1ZGM1JIZFpSRlpTTUZSQlVVZ3ZRa0ZWZDBGM1JVSUtMM3BCWkVKblRsWklVVFJGUm1kUlZVRmtZMWx1UVhvek9XTm1WRGhvWTNsT2JDdE1abmRNVDJ0VE9IZEVVVmxLUzI5YVNXaDJZMDVCVVVWTVFsRkJSQXBuWjBWQ1FVc3ZTbG96Vm0xRmRGVnJVRzFQUlhwVVYyaFFTbGhSVHk5dmEzVkdPRUo1ZWl0Nk4xZEdaVVZIZVd4c1YzY3lNSE4wYUdOclUwcE1TM0ExQ25odGRUSmlkSEJMVVZOblYwOXZTeTh3ZVdkTlQzVm9RWGxrV1ZONFdWVTRXR0YwYm1OVVprNUpPVWwwVnpsRWJsZFpWQzkxY1hSQmIxSlNWRWxYTVRnS09DOU1Ta2Q2WlZGaU9XWmlSRmxvVFcxM2NFMXBZakV3VkhoSllYWnRja0pRY0RabmJHMTJOWGg1WVdOclRrVmtPVFZYV0VnMkt6QjRWU3RMVWxNeFVBcFpRMjVXVURsS2FVRlBiVllyTHlzM2N5ODFURk5qTld0S2FHZzRWR2RsWlZKUFduVkRjeXN6UzJGUmVrbHpWWGhQVkZaeVNtRk1TV2x6WTBoTlVqWTFDbWRzUVVwNVJuWXhka00wYVUxTGEybzJMelZ5VXpOM1ZFZExVekV5UW1SMk5uUkZUM3BVU1dsWmMzWkJOVFJ4ZWpKWlIzTXJSRVZaU0dRdmNUWlljMVFLYWtRck56WlphR0pyT0RBeU16ZDBhR3h5T1dsUlduQm1TVUozUFFvdExTMHRMVVZPUkNCRFJWSlVTVVpKUTBGVVJTMHRMUzB0Q2c9PSJ9XX19LCJ2ZXJzaW9uIjoiMy4yLjAifX0="
+      BlockDeviceMappings:
+      - Ebs:
+          SnapshotId: ""
+          VolumeType: "gp3"
+          KmsKeyId:
+            Fn::GetAtt:
+            - "KMSKey007abeefb8067347208dced7e0fc512d1000mHi2M"
+            - "Arn"
+          Encrypted: true
+          Iops: 3000
+          VolumeSize: 2048
+          DeleteOnTermination: false
+        DeviceName: "/dev/xvdaa"
+      - Ebs:
+          SnapshotId: "snap-01720b82512455a1c"
+          VolumeType: "gp3"
+          KmsKeyId:
+            Fn::GetAtt:
+            - "KMSKey007abeefb8067347208dced7e0fc512d1000mHi2M"
+            - "Arn"
+          Encrypted: true
+          Iops: 3000
+          VolumeSize: 120
+          DeleteOnTermination: true
+        DeviceName: "/dev/xvda"
+      - Ebs:
+          SnapshotId: ""
+          VolumeType: "gp3"
+          KmsKeyId:
+            Fn::GetAtt:
+            - "KMSKey007abeefb8067347208dced7e0fc512d1000mHi2M"
+            - "Arn"
+          Encrypted: true
+          Iops: 3000
+          VolumeSize: 50
+          DeleteOnTermination: false
+        DeviceName: "/dev/xvdab"
+      IamInstanceProfile:
+        Ref: "IAMInstanceProfile00maspocb7pbxworkerprofile00Xaqx9"
+      SubnetId:
+        Ref: "EC2Subnet00subnet0cc3549ee6daa49ac008lMNt"
+      EbsOptimized: false
+      Volumes:
+      - VolumeId: "vol-0fb18f622815e5164"
+        Device: "/dev/xvdaa"
+      - VolumeId: "vol-037a48266e09be416"
+        Device: "/dev/xvda"
+      - VolumeId: "vol-094e0561b7672c6e1"
+        Device: "/dev/xvdab"
+      NetworkInterfaces:
+      - PrivateIpAddresses:
+        - PrivateIpAddress: "10.0.0.215"
+          Primary: true
+        SecondaryPrivateIpAddressCount: 0
+        DeviceIndex: "0"
+        GroupSet:
+        - Ref: "EC2SecurityGroup00sg0f0162887ec72887100xEoae"
+        Ipv6Addresses: []
+        SubnetId:
+          Ref: "EC2Subnet00subnet0cc3549ee6daa49ac008lMNt"
+        AssociatePublicIpAddress: false
+        NetworkInterfaceId:
+          Ref: "EC2NetworkInterface00eni057b0222dae4fd5d800TV1n0"
+        DeleteOnTermination: true
+      ImageId: "ami-00d973a79002d742b"
+      InstanceType: "m5.4xlarge"
+      Monitoring: false
+      Tags:
+      - Value: "owned"
+        Key: "kubernetes.io/cluster/maspoc-b7pbx"
+      - Value: "maspoc-b7pbx-worker-us-east-1a-2n8sf"
+        Key: "Name"
+      InstanceInitiatedShutdownBehavior: "stop"
+      CpuOptions:
+        ThreadsPerCore: 2
+        CoreCount: 8
+      AvailabilityZone: "us-east-1a"
+      PrivateDnsNameOptions:
+        EnableResourceNameDnsARecord: false
+        HostnameType: "ip-name"
+        EnableResourceNameDnsAAAARecord: false
+      SecurityGroupIds:
+      - "sg-0f0162887ec728871"
+      DisableApiTermination: false
+      SourceDestCheck: true
+      PlacementGroupName: ""
+      VpcId: "vpc-033689ea0213830c0"
+      State:
+        Code: "80"
+        Name: "stopped"
+      CreditSpecification:
+        CPUCredits: "standard"
+  EC2VolumeAttachment00vol0a2a75f6843fe8ed900kWWR9:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::EC2::VolumeAttachment"
+    DeletionPolicy: "Retain"
+    Properties:
+      InstanceId: "i-02b01aa38f7cbdcab"
+      VolumeId: "vol-0a2a75f6843fe8ed9"
+      Device: "/dev/xvdaa"
+  IAMUser00maspocb7pbxnoobaaawscloudcreds9mvbp008EfdS:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::IAM::User"
+    DeletionPolicy: "Retain"
+    Properties:
+      Path: "/"
+      Policies:
+      - PolicyDocument:
+          Version: "2012-10-17"
+          Statement:
+          - Resource: "arn:aws:s3:::nb.1730238062636.apps.maspoc.masdemo-ibm.com"
+            Action:
+            - "s3:*"
+            Effect: "Allow"
+          - Resource: "arn:aws:s3:::nb.1730238062636.apps.maspoc.masdemo-ibm.com/*"
+            Action:
+            - "s3:*"
+            Effect: "Allow"
+          - Resource: "*"
+            Action:
+            - "s3:ListAllMyBuckets"
+            Effect: "Allow"
+          - Resource: "arn:aws:iam::975050159122:user/maspoc-b7pbx-noobaa-aws-cloud-creds-9mvbp"
+            Action:
+            - "iam:GetUser"
+            Effect: "Allow"
+        PolicyName: "maspoc-b7pbx-noobaa-aws-cloud-creds-9mvbp-policy"
+      UserName: "maspoc-b7pbx-noobaa-aws-cloud-creds-9mvbp"
+      Tags:
+      - Value: "owned"
+        Key: "kubernetes.io/cluster/maspoc-b7pbx"
+  EC2Instance00i09a0991a84dab282200ayqI4:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::EC2::Instance"
+    DeletionPolicy: "Retain"
+    Properties:
+      Tenancy: "default"
+      SecurityGroups:
+      - "terraform-20241029185425171000000001"
+      PrivateIpAddress: "10.0.2.138"
+      UserData: "eyJpZ25pdGlvbiI6eyJjb25maWciOnsibWVyZ2UiOlt7InNvdXJjZSI6Imh0dHBzOi8vYXBpLWludC5tYXNwb2MubWFzZGVtby1pYm0uY29tOjIyNjIzL2NvbmZpZy9tYXN0ZXIifV19LCJzZWN1cml0eSI6eyJ0bHMiOnsiY2VydGlmaWNhdGVBdXRob3JpdGllcyI6W3sic291cmNlIjoiZGF0YTp0ZXh0L3BsYWluO2NoYXJzZXQ9dXRmLTg7YmFzZTY0LExTMHRMUzFDUlVkSlRpQkRSVkpVU1VaSlEwRlVSUzB0TFMwdENrMUpTVVJGUkVORFFXWnBaMEYzU1VKQlowbEpTVnBPYzA4cmVVVnJSR3QzUkZGWlNrdHZXa2xvZG1OT1FWRkZURUpSUVhkS2FrVlRUVUpCUjBFeFZVVUtRM2hOU21JelFteGliazV2WVZkYU1FMVNRWGRFWjFsRVZsRlJSRVYzWkhsaU1qa3dURmRPYUUxQ05GaEVWRWt3VFZSQmVVOVVSVFJPVkUxM1RXeHZXQXBFVkUwd1RWUkJlVTU2UlRST1ZFMTNUV3h2ZDBwcVJWTk5Ra0ZIUVRGVlJVTjRUVXBpTTBKc1ltNU9iMkZYV2pCTlVrRjNSR2RaUkZaUlVVUkZkMlI1Q21JeU9UQk1WMDVvVFVsSlFrbHFRVTVDWjJ0eGFHdHBSemwzTUVKQlVVVkdRVUZQUTBGUk9FRk5TVWxDUTJkTFEwRlJSVUZ6VnpWVE5rVmhLMDA1TmlzS2IwTkJLM2hSTXpoU2JUUTBjbmRvWTBKcWVXa3ZaMlZ0Y0VoR2NVbFBlbUl6WW5scmJHRm5hVnA0UWtNeWRIZEdhalJXZWpkR2VtTjJTek5tWmtkWFpBcFlabHBrTTNkQ2RYWk9OblJNWjFnM01FMVFjQ3RVUkZSNGVrRlhRVVV2YVdnM1ZraFRWR3RHZDBoV2FtRlVXV3RuU1RKWWVqaHVVMFIzTUdwdE5sbHpDbk4zVVM5V1kxWkVibWxQUjFKSlV6SjVVSGwzYUU4MFZEQkxaV0pGU0c5aGIwb3JkVmN4ZGtsMU5rYzVTMmhJYTFkVVlUVXJVRTg0U1c1QmIxQmxTelVLWnpKWVJ6aGlRVmhJZGtJNFNFMUZZMHMwWkVvdlMxZzFaVzFDSzBKTWRqY3pRazFoY2tOU0wyTnlUbkpxYW01SU0ya3hXRGxaTjNCQlNXWkNiSEpMUXdvMmNrOUJlVUY1VkhKVlRIcFdVSEJzVWpSTVVGbGlkRWxXSzFReVYybE1VMGxMWmtORUsxbFNkSHBWWWtkNmVFbE1WMVZWYkV4aFNqUkNVelJVZFZGakNqTm1ZbXhWV214bWIxRkpSRUZSUVVKdk1FbDNVVVJCVDBKblRsWklVVGhDUVdZNFJVSkJUVU5CY1ZGM1JIZFpSRlpTTUZSQlVVZ3ZRa0ZWZDBGM1JVSUtMM3BCWkVKblRsWklVVFJGUm1kUlZVRmtZMWx1UVhvek9XTm1WRGhvWTNsT2JDdE1abmRNVDJ0VE9IZEVVVmxLUzI5YVNXaDJZMDVCVVVWTVFsRkJSQXBuWjBWQ1FVc3ZTbG96Vm0xRmRGVnJVRzFQUlhwVVYyaFFTbGhSVHk5dmEzVkdPRUo1ZWl0Nk4xZEdaVVZIZVd4c1YzY3lNSE4wYUdOclUwcE1TM0ExQ25odGRUSmlkSEJMVVZOblYwOXZTeTh3ZVdkTlQzVm9RWGxrV1ZONFdWVTRXR0YwYm1OVVprNUpPVWwwVnpsRWJsZFpWQzkxY1hSQmIxSlNWRWxYTVRnS09DOU1Ta2Q2WlZGaU9XWmlSRmxvVFcxM2NFMXBZakV3VkhoSllYWnRja0pRY0RabmJHMTJOWGg1WVdOclRrVmtPVFZYV0VnMkt6QjRWU3RMVWxNeFVBcFpRMjVXVURsS2FVRlBiVllyTHlzM2N5ODFURk5qTld0S2FHZzRWR2RsWlZKUFduVkRjeXN6UzJGUmVrbHpWWGhQVkZaeVNtRk1TV2x6WTBoTlVqWTFDbWRzUVVwNVJuWXhka00wYVUxTGEybzJMelZ5VXpOM1ZFZExVekV5UW1SMk5uUkZUM3BVU1dsWmMzWkJOVFJ4ZWpKWlIzTXJSRVZaU0dRdmNUWlljMVFLYWtRck56WlphR0pyT0RBeU16ZDBhR3h5T1dsUlduQm1TVUozUFFvdExTMHRMVVZPUkNCRFJWSlVTVVpKUTBGVVJTMHRMUzB0Q2c9PSJ9XX19LCJ2ZXJzaW9uIjoiMy4yLjAifX0="
+      BlockDeviceMappings:
+      - Ebs:
+          SnapshotId: "snap-01720b82512455a1c"
+          VolumeType: "gp3"
+          KmsKeyId:
+            Fn::GetAtt:
+            - "KMSKey007abeefb8067347208dced7e0fc512d1000mHi2M"
+            - "Arn"
+          Encrypted: true
+          Iops: 3000
+          VolumeSize: 120
+          DeleteOnTermination: true
+        DeviceName: "/dev/xvda"
+      IamInstanceProfile:
+        Ref: "IAMInstanceProfile00maspocb7pbxmasterprofile00p8JUW"
+      SubnetId:
+        Ref: "EC2Subnet00subnet0a476f6ccc1bac41c00IAx6N"
+      EbsOptimized: false
+      Volumes:
+      - VolumeId: "vol-029b4a91a5ffd68b8"
+        Device: "/dev/xvda"
+      NetworkInterfaces:
+      - Description: "Created By OpenShift Installer"
+        PrivateIpAddresses:
+        - PrivateIpAddress: "10.0.2.138"
+          Primary: true
+        SecondaryPrivateIpAddressCount: 0
+        DeviceIndex: "0"
+        GroupSet:
+        - Ref: "EC2SecurityGroup00sg012cb0ffdf31dcc4500lcXbu"
+        Ipv6Addresses: []
+        SubnetId:
+          Ref: "EC2Subnet00subnet0a476f6ccc1bac41c00IAx6N"
+        AssociatePublicIpAddress: false
+        NetworkInterfaceId:
+          Ref: "EC2NetworkInterface00eni0114db02277fd374500RaQNN"
+        DeleteOnTermination: false
+      ImageId: "ami-00d973a79002d742b"
+      InstanceType: "m5.xlarge"
+      Monitoring: false
+      Tags:
+      - Value: "owned"
+        Key: "kubernetes.io/cluster/maspoc-b7pbx"
+      - Value: "maspoc-b7pbx-master-2"
+        Key: "Name"
+      InstanceInitiatedShutdownBehavior: "stop"
+      CpuOptions:
+        ThreadsPerCore: 2
+        CoreCount: 2
+      AvailabilityZone: "us-east-1c"
+      PrivateDnsNameOptions:
+        EnableResourceNameDnsARecord: false
+        HostnameType: "ip-name"
+        EnableResourceNameDnsAAAARecord: false
+      SecurityGroupIds:
+      - "sg-012cb0ffdf31dcc45"
+      DisableApiTermination: false
+      SourceDestCheck: true
+      PlacementGroupName: ""
+      VpcId: "vpc-033689ea0213830c0"
+      State:
+        Code: "80"
+        Name: "stopped"
+      CreditSpecification:
+        CPUCredits: "standard"
+  EC2Subnet00subnet0cc3549ee6daa49ac008lMNt:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::EC2::Subnet"
+    DeletionPolicy: "Retain"
+    Properties:
+      VpcId:
+        Ref: "EC2VPC00vpc033689ea0213830c000vTw7k"
+      MapPublicIpOnLaunch: false
+      EnableDns64: false
+      AvailabilityZoneId: "use1-az4"
+      PrivateDnsNameOptionsOnLaunch:
+        EnableResourceNameDnsARecord: false
+        HostnameType: "ip-name"
+        EnableResourceNameDnsAAAARecord: false
+      CidrBlock: "10.0.0.0/24"
+      Ipv6Native: false
+      Tags:
+      - Value: "maspoc-b7pbx-private-us-east-1a"
+        Key: "Name"
+      - Value: ""
+        Key: "kubernetes.io/role/internal-elb"
+      - Value: "owned"
+        Key: "kubernetes.io/cluster/maspoc-b7pbx"
+  EC2Volume00vol029b4a91a5ffd68b800VMPsm:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::EC2::Volume"
+    DeletionPolicy: "Retain"
+    Properties:
+      MultiAttachEnabled: false
+      SnapshotId: "snap-01720b82512455a1c"
+      VolumeType: "gp3"
+      KmsKeyId: "arn:aws:kms:us-east-1:975050159122:key/7abeefb8-0673-4720-8dce-d7e0fc512d10"
+      Encrypted: true
+      Size: 120
+      AutoEnableIO: true
+      AvailabilityZone: "us-east-1c"
+      Throughput: 125
+      Iops: 3000
+      Tags:
+      - Value: "owned"
+        Key: "kubernetes.io/cluster/maspoc-b7pbx"
+      - Value: "maspoc-b7pbx-master-2-vol"
+        Key: "Name"
+  EC2VolumeAttachment00vol094e0561b7672c6e100C7K6W:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::EC2::VolumeAttachment"
+    DeletionPolicy: "Retain"
+    Properties:
+      InstanceId: "i-0f0da620f13661d97"
+      VolumeId: "vol-094e0561b7672c6e1"
+      Device: "/dev/xvdab"
+  EC2Volume00vol0ff81909fd8dcacc00028w1y:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::EC2::Volume"
+    DeletionPolicy: "Retain"
+    Properties:
+      MultiAttachEnabled: false
+      SnapshotId: "snap-01720b82512455a1c"
+      VolumeType: "gp3"
+      KmsKeyId: "arn:aws:kms:us-east-1:975050159122:key/7abeefb8-0673-4720-8dce-d7e0fc512d10"
+      Encrypted: true
+      Size: 120
+      AutoEnableIO: true
+      AvailabilityZone: "us-east-1a"
+      Throughput: 125
+      Iops: 3000
+      Tags:
+      - Value: "maspoc-b7pbx-master-0-vol"
+        Key: "Name"
+      - Value: "owned"
+        Key: "kubernetes.io/cluster/maspoc-b7pbx"
+  EC2Subnet00subnet0a476f6ccc1bac41c00IAx6N:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::EC2::Subnet"
+    DeletionPolicy: "Retain"
+    Properties:
+      VpcId:
+        Ref: "EC2VPC00vpc033689ea0213830c000vTw7k"
+      MapPublicIpOnLaunch: false
+      EnableDns64: false
+      AvailabilityZoneId: "use1-az1"
+      PrivateDnsNameOptionsOnLaunch:
+        EnableResourceNameDnsARecord: false
+        HostnameType: "ip-name"
+        EnableResourceNameDnsAAAARecord: false
+      CidrBlock: "10.0.2.0/24"
+      Ipv6Native: false
+      Tags:
+      - Value: "owned"
+        Key: "kubernetes.io/cluster/maspoc-b7pbx"
+      - Value: "maspoc-b7pbx-private-us-east-1c"
+        Key: "Name"
+      - Value: ""
+        Key: "kubernetes.io/role/internal-elb"
+  EC2VolumeAttachment00vol01850b13edc8cce8a00Kl2ew:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::EC2::VolumeAttachment"
+    DeletionPolicy: "Retain"
+    Properties:
+      InstanceId: "i-01ec83d0a2cf89422"
+      VolumeId: "vol-01850b13edc8cce8a"
+      Device: "/dev/xvdaa"
+  IAMUser00maspocb7pbxcloudcredentialoperatoriamrokw8k800Ma7MB:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::IAM::User"
+    DeletionPolicy: "Retain"
+    Properties:
+      Path: "/"
+      Policies:
+      - PolicyDocument:
+          Version: "2012-10-17"
+          Statement:
+          - Resource: "*"
+            Action:
+            - "iam:GetUser"
+            - "iam:GetUserPolicy"
+            - "iam:ListAccessKeys"
+            Effect: "Allow"
+          - Resource: "arn:aws:iam::975050159122:user/maspoc-b7pbx-cloud-credential-operator-iam-ro-kw8k8"
+            Action:
+            - "iam:GetUser"
+            Effect: "Allow"
+        PolicyName: "maspoc-b7pbx-cloud-credential-operator-iam-ro-kw8k8-policy"
+      UserName: "maspoc-b7pbx-cloud-credential-operator-iam-ro-kw8k8"
+      Tags:
+      - Value: "owned"
+        Key: "kubernetes.io/cluster/maspoc-b7pbx"
+  EC2KeyPair00IBMMasDemoGTM00ZwSVd:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::EC2::KeyPair"
+    DeletionPolicy: "Retain"
+    Properties:
+      KeyName: "IBMMasDemo-GTM"
+      KeyType: "rsa"
+      PublicKeyMaterial: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCRYdpepqxZyCO7SFSMYmR1YUPQr0Np8e2ALBvKAcfAs7Isy4H93F6BoEVkJ7pwriUqigOlD7Fdt31bkKQvtZVksPVMpwVGWka5Q172tM7NB7E+xl0pdeJL+4rxOzjydS8VSCBo7ylwRUfednCyk7891eU7dfiULcyVqsVWxU7Sl/f7TvtQtn1qfGjldjghuUlXUo9fFD5wPIF4A1mSV/ZVeU2XA9n+JCxYPAkTLF3PI3q+Tr2R/CCmaTnDXoOtHtr2i5HryiotNiO7xEdtmX+YAN5evM7FagTi+vcZYIH0f8Vas69eP3N4zCx9eDIy/vglDcDo2+tJoayYDZMP3VEV\
+        \ IBMMasDemo-GTM\n"
+      Tags: []
+  S3Bucket00maspocb7pbximageregistryuseast1fqqvgbkgkdcmhlahpvimyfxm00sxU8p:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::S3::Bucket"
+    DeletionPolicy: "Retain"
+    Properties:
+      PublicAccessBlockConfiguration:
+        RestrictPublicBuckets: true
+        IgnorePublicAcls: true
+        BlockPublicPolicy: true
+        BlockPublicAcls: true
+      LifecycleConfiguration:
+        TransitionDefaultMinimumObjectSize: "all_storage_classes_128K"
+        Rules:
+        - Status: "Enabled"
+          Id: "cleanup-incomplete-multipart-registry-uploads"
+          Prefix: ""
+          AbortIncompleteMultipartUpload:
+            DaysAfterInitiation: 1
+      BucketName: "maspoc-b7pbx-image-registry-us-east-1-fqqvgbkgkdcmhlahpvimyfxm"
+      OwnershipControls:
+        Rules:
+        - ObjectOwnership: "BucketOwnerEnforced"
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+        - BucketKeyEnabled: false
+          ServerSideEncryptionByDefault:
+            SSEAlgorithm: "AES256"
+      Tags:
+      - Value: "owned"
+        Key: "kubernetes.io/cluster/maspoc-b7pbx"
+      - Value: "maspoc-b7pbx-image-registry"
+        Key: "Name"
+  EC2Instance00i0aeaf2f72f19dca59008WbEy:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::EC2::Instance"
+    DeletionPolicy: "Retain"
+    Properties:
+      Tenancy: "default"
+      SecurityGroups:
+      - "terraform-20241029185425171000000001"
+      PrivateIpAddress: "10.0.1.24"
+      UserData: "eyJpZ25pdGlvbiI6eyJjb25maWciOnsibWVyZ2UiOlt7InNvdXJjZSI6Imh0dHBzOi8vYXBpLWludC5tYXNwb2MubWFzZGVtby1pYm0uY29tOjIyNjIzL2NvbmZpZy9tYXN0ZXIifV19LCJzZWN1cml0eSI6eyJ0bHMiOnsiY2VydGlmaWNhdGVBdXRob3JpdGllcyI6W3sic291cmNlIjoiZGF0YTp0ZXh0L3BsYWluO2NoYXJzZXQ9dXRmLTg7YmFzZTY0LExTMHRMUzFDUlVkSlRpQkRSVkpVU1VaSlEwRlVSUzB0TFMwdENrMUpTVVJGUkVORFFXWnBaMEYzU1VKQlowbEpTVnBPYzA4cmVVVnJSR3QzUkZGWlNrdHZXa2xvZG1OT1FWRkZURUpSUVhkS2FrVlRUVUpCUjBFeFZVVUtRM2hOU21JelFteGliazV2WVZkYU1FMVNRWGRFWjFsRVZsRlJSRVYzWkhsaU1qa3dURmRPYUUxQ05GaEVWRWt3VFZSQmVVOVVSVFJPVkUxM1RXeHZXQXBFVkUwd1RWUkJlVTU2UlRST1ZFMTNUV3h2ZDBwcVJWTk5Ra0ZIUVRGVlJVTjRUVXBpTTBKc1ltNU9iMkZYV2pCTlVrRjNSR2RaUkZaUlVVUkZkMlI1Q21JeU9UQk1WMDVvVFVsSlFrbHFRVTVDWjJ0eGFHdHBSemwzTUVKQlVVVkdRVUZQUTBGUk9FRk5TVWxDUTJkTFEwRlJSVUZ6VnpWVE5rVmhLMDA1TmlzS2IwTkJLM2hSTXpoU2JUUTBjbmRvWTBKcWVXa3ZaMlZ0Y0VoR2NVbFBlbUl6WW5scmJHRm5hVnA0UWtNeWRIZEdhalJXZWpkR2VtTjJTek5tWmtkWFpBcFlabHBrTTNkQ2RYWk9OblJNWjFnM01FMVFjQ3RVUkZSNGVrRlhRVVV2YVdnM1ZraFRWR3RHZDBoV2FtRlVXV3RuU1RKWWVqaHVVMFIzTUdwdE5sbHpDbk4zVVM5V1kxWkVibWxQUjFKSlV6SjVVSGwzYUU4MFZEQkxaV0pGU0c5aGIwb3JkVmN4ZGtsMU5rYzVTMmhJYTFkVVlUVXJVRTg0U1c1QmIxQmxTelVLWnpKWVJ6aGlRVmhJZGtJNFNFMUZZMHMwWkVvdlMxZzFaVzFDSzBKTWRqY3pRazFoY2tOU0wyTnlUbkpxYW01SU0ya3hXRGxaTjNCQlNXWkNiSEpMUXdvMmNrOUJlVUY1VkhKVlRIcFdVSEJzVWpSTVVGbGlkRWxXSzFReVYybE1VMGxMWmtORUsxbFNkSHBWWWtkNmVFbE1WMVZWYkV4aFNqUkNVelJVZFZGakNqTm1ZbXhWV214bWIxRkpSRUZSUVVKdk1FbDNVVVJCVDBKblRsWklVVGhDUVdZNFJVSkJUVU5CY1ZGM1JIZFpSRlpTTUZSQlVVZ3ZRa0ZWZDBGM1JVSUtMM3BCWkVKblRsWklVVFJGUm1kUlZVRmtZMWx1UVhvek9XTm1WRGhvWTNsT2JDdE1abmRNVDJ0VE9IZEVVVmxLUzI5YVNXaDJZMDVCVVVWTVFsRkJSQXBuWjBWQ1FVc3ZTbG96Vm0xRmRGVnJVRzFQUlhwVVYyaFFTbGhSVHk5dmEzVkdPRUo1ZWl0Nk4xZEdaVVZIZVd4c1YzY3lNSE4wYUdOclUwcE1TM0ExQ25odGRUSmlkSEJMVVZOblYwOXZTeTh3ZVdkTlQzVm9RWGxrV1ZONFdWVTRXR0YwYm1OVVprNUpPVWwwVnpsRWJsZFpWQzkxY1hSQmIxSlNWRWxYTVRnS09DOU1Ta2Q2WlZGaU9XWmlSRmxvVFcxM2NFMXBZakV3VkhoSllYWnRja0pRY0RabmJHMTJOWGg1WVdOclRrVmtPVFZYV0VnMkt6QjRWU3RMVWxNeFVBcFpRMjVXVURsS2FVRlBiVllyTHlzM2N5ODFURk5qTld0S2FHZzRWR2RsWlZKUFduVkRjeXN6UzJGUmVrbHpWWGhQVkZaeVNtRk1TV2x6WTBoTlVqWTFDbWRzUVVwNVJuWXhka00wYVUxTGEybzJMelZ5VXpOM1ZFZExVekV5UW1SMk5uUkZUM3BVU1dsWmMzWkJOVFJ4ZWpKWlIzTXJSRVZaU0dRdmNUWlljMVFLYWtRck56WlphR0pyT0RBeU16ZDBhR3h5T1dsUlduQm1TVUozUFFvdExTMHRMVVZPUkNCRFJWSlVTVVpKUTBGVVJTMHRMUzB0Q2c9PSJ9XX19LCJ2ZXJzaW9uIjoiMy4yLjAifX0="
+      BlockDeviceMappings:
+      - Ebs:
+          SnapshotId: "snap-01720b82512455a1c"
+          VolumeType: "gp3"
+          KmsKeyId:
+            Fn::GetAtt:
+            - "KMSKey007abeefb8067347208dced7e0fc512d1000mHi2M"
+            - "Arn"
+          Encrypted: true
+          Iops: 3000
+          VolumeSize: 120
+          DeleteOnTermination: true
+        DeviceName: "/dev/xvda"
+      IamInstanceProfile:
+        Ref: "IAMInstanceProfile00maspocb7pbxmasterprofile00p8JUW"
+      SubnetId:
+        Ref: "EC2Subnet00subnet0b9366d5af8b353ea00mreUT"
+      EbsOptimized: false
+      Volumes:
+      - VolumeId: "vol-0149c965067269a96"
+        Device: "/dev/xvda"
+      NetworkInterfaces:
+      - Description: "Created By OpenShift Installer"
+        PrivateIpAddresses:
+        - PrivateIpAddress: "10.0.1.24"
+          Primary: true
+        SecondaryPrivateIpAddressCount: 0
+        DeviceIndex: "0"
+        GroupSet:
+        - Ref: "EC2SecurityGroup00sg012cb0ffdf31dcc4500lcXbu"
+        Ipv6Addresses: []
+        SubnetId:
+          Ref: "EC2Subnet00subnet0b9366d5af8b353ea00mreUT"
+        AssociatePublicIpAddress: false
+        NetworkInterfaceId:
+          Ref: "EC2NetworkInterface00eni0c4f9fd3040461d5000jID3o"
+        DeleteOnTermination: false
+      ImageId: "ami-00d973a79002d742b"
+      InstanceType: "m5.xlarge"
+      Monitoring: false
+      Tags:
+      - Value: "maspoc-b7pbx-master-1"
+        Key: "Name"
+      - Value: "owned"
+        Key: "kubernetes.io/cluster/maspoc-b7pbx"
+      InstanceInitiatedShutdownBehavior: "stop"
+      CpuOptions:
+        ThreadsPerCore: 2
+        CoreCount: 2
+      AvailabilityZone: "us-east-1b"
+      PrivateDnsNameOptions:
+        EnableResourceNameDnsARecord: false
+        HostnameType: "ip-name"
+        EnableResourceNameDnsAAAARecord: false
+      SecurityGroupIds:
+      - "sg-012cb0ffdf31dcc45"
+      DisableApiTermination: false
+      SourceDestCheck: true
+      PlacementGroupName: ""
+      VpcId: "vpc-033689ea0213830c0"
+      State:
+        Code: "80"
+        Name: "stopped"
+      CreditSpecification:
+        CPUCredits: "standard"
+  EC2Volume00vol0149c965067269a9600fbN17:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::EC2::Volume"
+    DeletionPolicy: "Retain"
+    Properties:
+      MultiAttachEnabled: false
+      SnapshotId: "snap-01720b82512455a1c"
+      VolumeType: "gp3"
+      KmsKeyId: "arn:aws:kms:us-east-1:975050159122:key/7abeefb8-0673-4720-8dce-d7e0fc512d10"
+      Encrypted: true
+      Size: 120
+      AutoEnableIO: true
+      AvailabilityZone: "us-east-1b"
+      Throughput: 125
+      Iops: 3000
+      Tags:
+      - Value: "owned"
+        Key: "kubernetes.io/cluster/maspoc-b7pbx"
+      - Value: "maspoc-b7pbx-master-1-vol"
+        Key: "Name"
+  IAMUser00maspocb7pbxopenshiftcloudnetworkconfigcontrozts8z00oHFJB:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::IAM::User"
+    DeletionPolicy: "Retain"
+    Properties:
+      Path: "/"
+      Policies:
+      - PolicyDocument:
+          Version: "2012-10-17"
+          Statement:
+          - Resource: "*"
+            Action:
+            - "ec2:DescribeInstances"
+            - "ec2:DescribeInstanceStatus"
+            - "ec2:DescribeInstanceTypes"
+            - "ec2:UnassignPrivateIpAddresses"
+            - "ec2:AssignPrivateIpAddresses"
+            - "ec2:UnassignIpv6Addresses"
+            - "ec2:AssignIpv6Addresses"
+            - "ec2:DescribeSubnets"
+            - "ec2:DescribeNetworkInterfaces"
+            Effect: "Allow"
+          - Resource: "arn:aws:iam::975050159122:user/maspoc-b7pbx-openshift-cloud-network-config-contro-zts8z"
+            Action:
+            - "iam:GetUser"
+            Effect: "Allow"
+        PolicyName: "maspoc-b7pbx-openshift-cloud-network-config-contro-zts8z-policy"
+      UserName: "maspoc-b7pbx-openshift-cloud-network-config-contro-zts8z"
+      Tags:
+      - Value: "owned"
+        Key: "kubernetes.io/cluster/maspoc-b7pbx"
+  EC2VPC00vpc033689ea0213830c000vTw7k:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::EC2::VPC"
+    DeletionPolicy: "Retain"
+    Properties:
+      CidrBlock: "10.0.0.0/20"
+      EnableDnsSupport: true
+      InstanceTenancy: "default"
+      EnableDnsHostnames: true
+      Tags:
+      - Value: "owned"
+        Key: "kubernetes.io/cluster/maspoc-b7pbx"
+      - Value: "maspoc-b7pbx-vpc"
+        Key: "Name"
+  EC2Instance00i01ec83d0a2cf8942200vvrjp:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::EC2::Instance"
+    DeletionPolicy: "Retain"
+    Properties:
+      Tenancy: "default"
+      SecurityGroups:
+      - "terraform-20241029185425262900000002"
+      PrivateIpAddress: "10.0.1.217"
+      UserData: "eyJpZ25pdGlvbiI6eyJjb25maWciOnsibWVyZ2UiOlt7InNvdXJjZSI6Imh0dHBzOi8vYXBpLWludC5tYXNwb2MubWFzZGVtby1pYm0uY29tOjIyNjIzL2NvbmZpZy93b3JrZXIifV19LCJzZWN1cml0eSI6eyJ0bHMiOnsiY2VydGlmaWNhdGVBdXRob3JpdGllcyI6W3sic291cmNlIjoiZGF0YTp0ZXh0L3BsYWluO2NoYXJzZXQ9dXRmLTg7YmFzZTY0LExTMHRMUzFDUlVkSlRpQkRSVkpVU1VaSlEwRlVSUzB0TFMwdENrMUpTVVJGUkVORFFXWnBaMEYzU1VKQlowbEpTVnBPYzA4cmVVVnJSR3QzUkZGWlNrdHZXa2xvZG1OT1FWRkZURUpSUVhkS2FrVlRUVUpCUjBFeFZVVUtRM2hOU21JelFteGliazV2WVZkYU1FMVNRWGRFWjFsRVZsRlJSRVYzWkhsaU1qa3dURmRPYUUxQ05GaEVWRWt3VFZSQmVVOVVSVFJPVkUxM1RXeHZXQXBFVkUwd1RWUkJlVTU2UlRST1ZFMTNUV3h2ZDBwcVJWTk5Ra0ZIUVRGVlJVTjRUVXBpTTBKc1ltNU9iMkZYV2pCTlVrRjNSR2RaUkZaUlVVUkZkMlI1Q21JeU9UQk1WMDVvVFVsSlFrbHFRVTVDWjJ0eGFHdHBSemwzTUVKQlVVVkdRVUZQUTBGUk9FRk5TVWxDUTJkTFEwRlJSVUZ6VnpWVE5rVmhLMDA1TmlzS2IwTkJLM2hSTXpoU2JUUTBjbmRvWTBKcWVXa3ZaMlZ0Y0VoR2NVbFBlbUl6WW5scmJHRm5hVnA0UWtNeWRIZEdhalJXZWpkR2VtTjJTek5tWmtkWFpBcFlabHBrTTNkQ2RYWk9OblJNWjFnM01FMVFjQ3RVUkZSNGVrRlhRVVV2YVdnM1ZraFRWR3RHZDBoV2FtRlVXV3RuU1RKWWVqaHVVMFIzTUdwdE5sbHpDbk4zVVM5V1kxWkVibWxQUjFKSlV6SjVVSGwzYUU4MFZEQkxaV0pGU0c5aGIwb3JkVmN4ZGtsMU5rYzVTMmhJYTFkVVlUVXJVRTg0U1c1QmIxQmxTelVLWnpKWVJ6aGlRVmhJZGtJNFNFMUZZMHMwWkVvdlMxZzFaVzFDSzBKTWRqY3pRazFoY2tOU0wyTnlUbkpxYW01SU0ya3hXRGxaTjNCQlNXWkNiSEpMUXdvMmNrOUJlVUY1VkhKVlRIcFdVSEJzVWpSTVVGbGlkRWxXSzFReVYybE1VMGxMWmtORUsxbFNkSHBWWWtkNmVFbE1WMVZWYkV4aFNqUkNVelJVZFZGakNqTm1ZbXhWV214bWIxRkpSRUZSUVVKdk1FbDNVVVJCVDBKblRsWklVVGhDUVdZNFJVSkJUVU5CY1ZGM1JIZFpSRlpTTUZSQlVVZ3ZRa0ZWZDBGM1JVSUtMM3BCWkVKblRsWklVVFJGUm1kUlZVRmtZMWx1UVhvek9XTm1WRGhvWTNsT2JDdE1abmRNVDJ0VE9IZEVVVmxLUzI5YVNXaDJZMDVCVVVWTVFsRkJSQXBuWjBWQ1FVc3ZTbG96Vm0xRmRGVnJVRzFQUlhwVVYyaFFTbGhSVHk5dmEzVkdPRUo1ZWl0Nk4xZEdaVVZIZVd4c1YzY3lNSE4wYUdOclUwcE1TM0ExQ25odGRUSmlkSEJMVVZOblYwOXZTeTh3ZVdkTlQzVm9RWGxrV1ZONFdWVTRXR0YwYm1OVVprNUpPVWwwVnpsRWJsZFpWQzkxY1hSQmIxSlNWRWxYTVRnS09DOU1Ta2Q2WlZGaU9XWmlSRmxvVFcxM2NFMXBZakV3VkhoSllYWnRja0pRY0RabmJHMTJOWGg1WVdOclRrVmtPVFZYV0VnMkt6QjRWU3RMVWxNeFVBcFpRMjVXVURsS2FVRlBiVllyTHlzM2N5ODFURk5qTld0S2FHZzRWR2RsWlZKUFduVkRjeXN6UzJGUmVrbHpWWGhQVkZaeVNtRk1TV2x6WTBoTlVqWTFDbWRzUVVwNVJuWXhka00wYVUxTGEybzJMelZ5VXpOM1ZFZExVekV5UW1SMk5uUkZUM3BVU1dsWmMzWkJOVFJ4ZWpKWlIzTXJSRVZaU0dRdmNUWlljMVFLYWtRck56WlphR0pyT0RBeU16ZDBhR3h5T1dsUlduQm1TVUozUFFvdExTMHRMVVZPUkNCRFJWSlVTVVpKUTBGVVJTMHRMUzB0Q2c9PSJ9XX19LCJ2ZXJzaW9uIjoiMy4yLjAifX0="
+      BlockDeviceMappings:
+      - Ebs:
+          SnapshotId: ""
+          VolumeType: "gp3"
+          KmsKeyId:
+            Fn::GetAtt:
+            - "KMSKey007abeefb8067347208dced7e0fc512d1000mHi2M"
+            - "Arn"
+          Encrypted: true
+          Iops: 3000
+          VolumeSize: 50
+          DeleteOnTermination: false
+        DeviceName: "/dev/xvdab"
+      - Ebs:
+          SnapshotId: ""
+          VolumeType: "gp3"
+          KmsKeyId:
+            Fn::GetAtt:
+            - "KMSKey007abeefb8067347208dced7e0fc512d1000mHi2M"
+            - "Arn"
+          Encrypted: true
+          Iops: 3000
+          VolumeSize: 2048
+          DeleteOnTermination: false
+        DeviceName: "/dev/xvdaa"
+      - Ebs:
+          SnapshotId: "snap-01720b82512455a1c"
+          VolumeType: "gp3"
+          KmsKeyId:
+            Fn::GetAtt:
+            - "KMSKey007abeefb8067347208dced7e0fc512d1000mHi2M"
+            - "Arn"
+          Encrypted: true
+          Iops: 3000
+          VolumeSize: 120
+          DeleteOnTermination: true
+        DeviceName: "/dev/xvda"
+      IamInstanceProfile:
+        Ref: "IAMInstanceProfile00maspocb7pbxworkerprofile00Xaqx9"
+      SubnetId:
+        Ref: "EC2Subnet00subnet0b9366d5af8b353ea00mreUT"
+      EbsOptimized: false
+      Volumes:
+      - VolumeId: "vol-009aec7bab0474eda"
+        Device: "/dev/xvdab"
+      - VolumeId: "vol-01850b13edc8cce8a"
+        Device: "/dev/xvdaa"
+      - VolumeId: "vol-0673e182abc9ee3c4"
+        Device: "/dev/xvda"
+      NetworkInterfaces:
+      - PrivateIpAddresses:
+        - PrivateIpAddress: "10.0.1.217"
+          Primary: true
+        SecondaryPrivateIpAddressCount: 0
+        DeviceIndex: "0"
+        GroupSet:
+        - Ref: "EC2SecurityGroup00sg0f0162887ec72887100xEoae"
+        Ipv6Addresses: []
+        SubnetId:
+          Ref: "EC2Subnet00subnet0b9366d5af8b353ea00mreUT"
+        AssociatePublicIpAddress: false
+        NetworkInterfaceId:
+          Ref: "EC2NetworkInterface00eni02cad60eacda37fa1000rT3p"
+        DeleteOnTermination: true
+      ImageId: "ami-00d973a79002d742b"
+      InstanceType: "m5.4xlarge"
+      Monitoring: false
+      Tags:
+      - Value: "maspoc-b7pbx-worker-us-east-1b-l7d9b"
+        Key: "Name"
+      - Value: "owned"
+        Key: "kubernetes.io/cluster/maspoc-b7pbx"
+      InstanceInitiatedShutdownBehavior: "stop"
+      CpuOptions:
+        ThreadsPerCore: 2
+        CoreCount: 8
+      AvailabilityZone: "us-east-1b"
+      PrivateDnsNameOptions:
+        EnableResourceNameDnsARecord: false
+        HostnameType: "ip-name"
+        EnableResourceNameDnsAAAARecord: false
+      SecurityGroupIds:
+      - "sg-0f0162887ec728871"
+      DisableApiTermination: false
+      SourceDestCheck: true
+      PlacementGroupName: ""
+      VpcId: "vpc-033689ea0213830c0"
+      State:
+        Code: "80"
+        Name: "stopped"
+      CreditSpecification:
+        CPUCredits: "standard"
+  IAMUser00maspocb7pbxopenshiftmachineapiawsdc4pj00YABTL:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::IAM::User"
+    DeletionPolicy: "Retain"
+    Properties:
+      Path: "/"
+      Policies:
+      - PolicyDocument:
+          Version: "2012-10-17"
+          Statement:
+          - Resource: "*"
+            Action:
+            - "ec2:CreateTags"
+            - "ec2:DescribeAvailabilityZones"
+            - "ec2:DescribeDhcpOptions"
+            - "ec2:DescribeImages"
+            - "ec2:DescribeInstances"
+            - "ec2:DescribeInstanceTypes"
+            - "ec2:DescribeInternetGateways"
+            - "ec2:DescribeSecurityGroups"
+            - "ec2:DescribeRegions"
+            - "ec2:DescribeSubnets"
+            - "ec2:DescribeVpcs"
+            - "ec2:RunInstances"
+            - "ec2:TerminateInstances"
+            - "elasticloadbalancing:DescribeLoadBalancers"
+            - "elasticloadbalancing:DescribeTargetGroups"
+            - "elasticloadbalancing:DescribeTargetHealth"
+            - "elasticloadbalancing:RegisterInstancesWithLoadBalancer"
+            - "elasticloadbalancing:RegisterTargets"
+            - "elasticloadbalancing:DeregisterTargets"
+            - "iam:PassRole"
+            - "iam:CreateServiceLinkedRole"
+            Effect: "Allow"
+          - Resource: "*"
+            Action:
+            - "kms:Decrypt"
+            - "kms:Encrypt"
+            - "kms:GenerateDataKey"
+            - "kms:GenerateDataKeyWithoutPlainText"
+            - "kms:DescribeKey"
+            Effect: "Allow"
+          - Condition:
+              Bool:
+                kms:GrantIsForAWSResource: true
+            Resource: "*"
+            Action:
+            - "kms:RevokeGrant"
+            - "kms:CreateGrant"
+            - "kms:ListGrants"
+            Effect: "Allow"
+          - Resource: "arn:aws:iam::975050159122:user/maspoc-b7pbx-openshift-machine-api-aws-dc4pj"
+            Action:
+            - "iam:GetUser"
+            Effect: "Allow"
+        PolicyName: "maspoc-b7pbx-openshift-machine-api-aws-dc4pj-policy"
+      UserName: "maspoc-b7pbx-openshift-machine-api-aws-dc4pj"
+      Tags:
+      - Value: "owned"
+        Key: "kubernetes.io/cluster/maspoc-b7pbx"
+  EC2NetworkInterface00eni0114db02277fd374500RaQNN:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::EC2::NetworkInterface"
+    DeletionPolicy: "Retain"
+    Properties:
+      Description: "Created By OpenShift Installer"
+      PrivateIpAddress: "10.0.2.138"
+      PrivateIpAddresses:
+      - PrivateIpAddress: "10.0.2.138"
+        Primary: true
+      SecondaryPrivateIpAddressCount: 0
+      Ipv6PrefixCount: 0
+      Ipv4Prefixes: []
+      Ipv4PrefixCount: 0
+      GroupSet:
+      - "sg-012cb0ffdf31dcc45"
+      Ipv6Prefixes: []
+      SubnetId:
+        Ref: "EC2Subnet00subnet0a476f6ccc1bac41c00IAx6N"
+      SourceDestCheck: true
+      InterfaceType: "interface"
+      Tags:
+      - Value: "owned"
+        Key: "kubernetes.io/cluster/maspoc-b7pbx"
+      - Value: "maspoc-b7pbx-master-2"
+        Key: "Name"
+  EC2VolumeAttachment00vol0fb18f622815e516400O3ISr:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::EC2::VolumeAttachment"
+    DeletionPolicy: "Retain"
+    Properties:
+      InstanceId: "i-0f0da620f13661d97"
+      VolumeId: "vol-0fb18f622815e5164"
+      Device: "/dev/xvdaa"
+  EC2VolumeAttachment00vol0149c965067269a9600REumH:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::EC2::VolumeAttachment"
+    DeletionPolicy: "Retain"
+    Properties:
+      InstanceId: "i-0aeaf2f72f19dca59"
+      VolumeId: "vol-0149c965067269a96"
+      Device: "/dev/xvda"
+  EC2NetworkInterface00eni0f78619b7bc8b591b00jjhCB:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::EC2::NetworkInterface"
+    DeletionPolicy: "Retain"
+    Properties:
+      Description: "Created By OpenShift Installer"
+      PrivateIpAddress: "10.0.0.19"
+      PrivateIpAddresses:
+      - PrivateIpAddress: "10.0.0.19"
+        Primary: true
+      SecondaryPrivateIpAddressCount: 0
+      Ipv6PrefixCount: 0
+      Ipv4Prefixes: []
+      Ipv4PrefixCount: 0
+      GroupSet:
+      - "sg-012cb0ffdf31dcc45"
+      Ipv6Prefixes: []
+      SubnetId:
+        Ref: "EC2Subnet00subnet0cc3549ee6daa49ac008lMNt"
+      SourceDestCheck: true
+      InterfaceType: "interface"
+      Tags:
+      - Value: "maspoc-b7pbx-master-0"
+        Key: "Name"
+      - Value: "owned"
+        Key: "kubernetes.io/cluster/maspoc-b7pbx"
+  EC2Volume00vol094e0561b7672c6e100RIbB0:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::EC2::Volume"
+    DeletionPolicy: "Retain"
+    Properties:
+      MultiAttachEnabled: false
+      VolumeType: "gp3"
+      KmsKeyId: "arn:aws:kms:us-east-1:975050159122:key/7abeefb8-0673-4720-8dce-d7e0fc512d10"
+      Encrypted: true
+      Size: 50
+      AutoEnableIO: false
+      AvailabilityZone: "us-east-1a"
+      Throughput: 125
+      Iops: 3000
+      Tags:
+      - Value: "owned"
+        Key: "kubernetes.io/cluster/maspoc-b7pbx"
+      - Value: "openshift-storage"
+        Key: "kubernetes.io/created-for/pvc/namespace"
+      - Value: "maspoc-b7pbx-dynamic-pvc-d43a60d5-6aa0-453d-b4d7-8a84fb23d062"
+        Key: "Name"
+      - Value: "pvc-d43a60d5-6aa0-453d-b4d7-8a84fb23d062"
+        Key: "CSIVolumeName"
+      - Value: "maspoc-b7pbx"
+        Key: "KubernetesCluster"
+      - Value: "pvc-d43a60d5-6aa0-453d-b4d7-8a84fb23d062"
+        Key: "kubernetes.io/created-for/pv/name"
+      - Value: "rook-ceph-mon-b"
+        Key: "kubernetes.io/created-for/pvc/name"
+      - Value: "true"
+        Key: "ebs.csi.aws.com/cluster"
+  EC2Volume00vol0a2a75f6843fe8ed900Vd9uq:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::EC2::Volume"
+    DeletionPolicy: "Retain"
+    Properties:
+      MultiAttachEnabled: false
+      VolumeType: "gp3"
+      KmsKeyId: "arn:aws:kms:us-east-1:975050159122:key/7abeefb8-0673-4720-8dce-d7e0fc512d10"
+      Encrypted: true
+      Size: 50
+      AutoEnableIO: false
+      AvailabilityZone: "us-east-1c"
+      Throughput: 125
+      Iops: 3000
+      Tags:
+      - Value: "owned"
+        Key: "kubernetes.io/cluster/maspoc-b7pbx"
+      - Value: "openshift-storage"
+        Key: "kubernetes.io/created-for/pvc/namespace"
+      - Value: "maspoc-b7pbx"
+        Key: "KubernetesCluster"
+      - Value: "maspoc-b7pbx-dynamic-pvc-076447d0-fa36-4222-b0b4-ae2e6a71e7dc"
+        Key: "Name"
+      - Value: "pvc-076447d0-fa36-4222-b0b4-ae2e6a71e7dc"
+        Key: "CSIVolumeName"
+      - Value: "rook-ceph-mon-a"
+        Key: "kubernetes.io/created-for/pvc/name"
+      - Value: "pvc-076447d0-fa36-4222-b0b4-ae2e6a71e7dc"
+        Key: "kubernetes.io/created-for/pv/name"
+      - Value: "true"
+        Key: "ebs.csi.aws.com/cluster"
+  IAMUser00maspocb7pbxawsebscsidriveroperatortpjzj00kGTjz:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::IAM::User"
+    DeletionPolicy: "Retain"
+    Properties:
+      Path: "/"
+      Policies:
+      - PolicyDocument:
+          Version: "2012-10-17"
+          Statement:
+          - Resource: "*"
+            Action:
+            - "ec2:AttachVolume"
+            - "ec2:CreateSnapshot"
+            - "ec2:CreateTags"
+            - "ec2:CreateVolume"
+            - "ec2:DeleteSnapshot"
+            - "ec2:DeleteTags"
+            - "ec2:DeleteVolume"
+            - "ec2:DescribeInstances"
+            - "ec2:DescribeSnapshots"
+            - "ec2:DescribeTags"
+            - "ec2:DescribeVolumes"
+            - "ec2:DescribeVolumesModifications"
+            - "ec2:DetachVolume"
+            - "ec2:ModifyVolume"
+            - "ec2:DescribeAvailabilityZones"
+            - "ec2:EnableFastSnapshotRestores"
+            Effect: "Allow"
+          - Resource: "*"
+            Action:
+            - "kms:ReEncrypt*"
+            - "kms:Decrypt"
+            - "kms:Encrypt"
+            - "kms:GenerateDataKey"
+            - "kms:GenerateDataKeyWithoutPlainText"
+            - "kms:DescribeKey"
+            Effect: "Allow"
+          - Condition:
+              Bool:
+                kms:GrantIsForAWSResource: true
+            Resource: "*"
+            Action:
+            - "kms:RevokeGrant"
+            - "kms:CreateGrant"
+            - "kms:ListGrants"
+            Effect: "Allow"
+          - Resource: "arn:aws:iam::975050159122:user/maspoc-b7pbx-aws-ebs-csi-driver-operator-tpjzj"
+            Action:
+            - "iam:GetUser"
+            Effect: "Allow"
+        PolicyName: "maspoc-b7pbx-aws-ebs-csi-driver-operator-tpjzj-policy"
+      UserName: "maspoc-b7pbx-aws-ebs-csi-driver-operator-tpjzj"
+      Tags:
+      - Value: "owned"
+        Key: "kubernetes.io/cluster/maspoc-b7pbx"
+  EC2Instance00i0fd94d97551ab2aab00hTQCP:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::EC2::Instance"
+    DeletionPolicy: "Retain"
+    Properties:
+      Tenancy: "default"
+      SecurityGroups:
+      - "terraform-20241029185425171000000001"
+      PrivateIpAddress: "10.0.0.19"
+      UserData: "eyJpZ25pdGlvbiI6eyJjb25maWciOnsibWVyZ2UiOlt7InNvdXJjZSI6Imh0dHBzOi8vYXBpLWludC5tYXNwb2MubWFzZGVtby1pYm0uY29tOjIyNjIzL2NvbmZpZy9tYXN0ZXIifV19LCJzZWN1cml0eSI6eyJ0bHMiOnsiY2VydGlmaWNhdGVBdXRob3JpdGllcyI6W3sic291cmNlIjoiZGF0YTp0ZXh0L3BsYWluO2NoYXJzZXQ9dXRmLTg7YmFzZTY0LExTMHRMUzFDUlVkSlRpQkRSVkpVU1VaSlEwRlVSUzB0TFMwdENrMUpTVVJGUkVORFFXWnBaMEYzU1VKQlowbEpTVnBPYzA4cmVVVnJSR3QzUkZGWlNrdHZXa2xvZG1OT1FWRkZURUpSUVhkS2FrVlRUVUpCUjBFeFZVVUtRM2hOU21JelFteGliazV2WVZkYU1FMVNRWGRFWjFsRVZsRlJSRVYzWkhsaU1qa3dURmRPYUUxQ05GaEVWRWt3VFZSQmVVOVVSVFJPVkUxM1RXeHZXQXBFVkUwd1RWUkJlVTU2UlRST1ZFMTNUV3h2ZDBwcVJWTk5Ra0ZIUVRGVlJVTjRUVXBpTTBKc1ltNU9iMkZYV2pCTlVrRjNSR2RaUkZaUlVVUkZkMlI1Q21JeU9UQk1WMDVvVFVsSlFrbHFRVTVDWjJ0eGFHdHBSemwzTUVKQlVVVkdRVUZQUTBGUk9FRk5TVWxDUTJkTFEwRlJSVUZ6VnpWVE5rVmhLMDA1TmlzS2IwTkJLM2hSTXpoU2JUUTBjbmRvWTBKcWVXa3ZaMlZ0Y0VoR2NVbFBlbUl6WW5scmJHRm5hVnA0UWtNeWRIZEdhalJXZWpkR2VtTjJTek5tWmtkWFpBcFlabHBrTTNkQ2RYWk9OblJNWjFnM01FMVFjQ3RVUkZSNGVrRlhRVVV2YVdnM1ZraFRWR3RHZDBoV2FtRlVXV3RuU1RKWWVqaHVVMFIzTUdwdE5sbHpDbk4zVVM5V1kxWkVibWxQUjFKSlV6SjVVSGwzYUU4MFZEQkxaV0pGU0c5aGIwb3JkVmN4ZGtsMU5rYzVTMmhJYTFkVVlUVXJVRTg0U1c1QmIxQmxTelVLWnpKWVJ6aGlRVmhJZGtJNFNFMUZZMHMwWkVvdlMxZzFaVzFDSzBKTWRqY3pRazFoY2tOU0wyTnlUbkpxYW01SU0ya3hXRGxaTjNCQlNXWkNiSEpMUXdvMmNrOUJlVUY1VkhKVlRIcFdVSEJzVWpSTVVGbGlkRWxXSzFReVYybE1VMGxMWmtORUsxbFNkSHBWWWtkNmVFbE1WMVZWYkV4aFNqUkNVelJVZFZGakNqTm1ZbXhWV214bWIxRkpSRUZSUVVKdk1FbDNVVVJCVDBKblRsWklVVGhDUVdZNFJVSkJUVU5CY1ZGM1JIZFpSRlpTTUZSQlVVZ3ZRa0ZWZDBGM1JVSUtMM3BCWkVKblRsWklVVFJGUm1kUlZVRmtZMWx1UVhvek9XTm1WRGhvWTNsT2JDdE1abmRNVDJ0VE9IZEVVVmxLUzI5YVNXaDJZMDVCVVVWTVFsRkJSQXBuWjBWQ1FVc3ZTbG96Vm0xRmRGVnJVRzFQUlhwVVYyaFFTbGhSVHk5dmEzVkdPRUo1ZWl0Nk4xZEdaVVZIZVd4c1YzY3lNSE4wYUdOclUwcE1TM0ExQ25odGRUSmlkSEJMVVZOblYwOXZTeTh3ZVdkTlQzVm9RWGxrV1ZONFdWVTRXR0YwYm1OVVprNUpPVWwwVnpsRWJsZFpWQzkxY1hSQmIxSlNWRWxYTVRnS09DOU1Ta2Q2WlZGaU9XWmlSRmxvVFcxM2NFMXBZakV3VkhoSllYWnRja0pRY0RabmJHMTJOWGg1WVdOclRrVmtPVFZYV0VnMkt6QjRWU3RMVWxNeFVBcFpRMjVXVURsS2FVRlBiVllyTHlzM2N5ODFURk5qTld0S2FHZzRWR2RsWlZKUFduVkRjeXN6UzJGUmVrbHpWWGhQVkZaeVNtRk1TV2x6WTBoTlVqWTFDbWRzUVVwNVJuWXhka00wYVUxTGEybzJMelZ5VXpOM1ZFZExVekV5UW1SMk5uUkZUM3BVU1dsWmMzWkJOVFJ4ZWpKWlIzTXJSRVZaU0dRdmNUWlljMVFLYWtRck56WlphR0pyT0RBeU16ZDBhR3h5T1dsUlduQm1TVUozUFFvdExTMHRMVVZPUkNCRFJWSlVTVVpKUTBGVVJTMHRMUzB0Q2c9PSJ9XX19LCJ2ZXJzaW9uIjoiMy4yLjAifX0="
+      BlockDeviceMappings:
+      - Ebs:
+          SnapshotId: "snap-01720b82512455a1c"
+          VolumeType: "gp3"
+          KmsKeyId:
+            Fn::GetAtt:
+            - "KMSKey007abeefb8067347208dced7e0fc512d1000mHi2M"
+            - "Arn"
+          Encrypted: true
+          Iops: 3000
+          VolumeSize: 120
+          DeleteOnTermination: true
+        DeviceName: "/dev/xvda"
+      IamInstanceProfile:
+        Ref: "IAMInstanceProfile00maspocb7pbxmasterprofile00p8JUW"
+      SubnetId:
+        Ref: "EC2Subnet00subnet0cc3549ee6daa49ac008lMNt"
+      EbsOptimized: false
+      Volumes:
+      - VolumeId: "vol-0ff81909fd8dcacc0"
+        Device: "/dev/xvda"
+      NetworkInterfaces:
+      - Description: "Created By OpenShift Installer"
+        PrivateIpAddresses:
+        - PrivateIpAddress: "10.0.0.19"
+          Primary: true
+        SecondaryPrivateIpAddressCount: 0
+        DeviceIndex: "0"
+        GroupSet:
+        - Ref: "EC2SecurityGroup00sg012cb0ffdf31dcc4500lcXbu"
+        Ipv6Addresses: []
+        SubnetId:
+          Ref: "EC2Subnet00subnet0cc3549ee6daa49ac008lMNt"
+        AssociatePublicIpAddress: false
+        NetworkInterfaceId:
+          Ref: "EC2NetworkInterface00eni0f78619b7bc8b591b00jjhCB"
+        DeleteOnTermination: false
+      ImageId: "ami-00d973a79002d742b"
+      InstanceType: "m5.xlarge"
+      Monitoring: false
+      Tags:
+      - Value: "maspoc-b7pbx-master-0"
+        Key: "Name"
+      - Value: "owned"
+        Key: "kubernetes.io/cluster/maspoc-b7pbx"
+      InstanceInitiatedShutdownBehavior: "stop"
+      CpuOptions:
+        ThreadsPerCore: 2
+        CoreCount: 2
+      AvailabilityZone: "us-east-1a"
+      PrivateDnsNameOptions:
+        EnableResourceNameDnsARecord: false
+        HostnameType: "ip-name"
+        EnableResourceNameDnsAAAARecord: false
+      SecurityGroupIds:
+      - "sg-012cb0ffdf31dcc45"
+      DisableApiTermination: false
+      SourceDestCheck: true
+      PlacementGroupName: ""
+      VpcId: "vpc-033689ea0213830c0"
+      State:
+        Code: "80"
+        Name: "stopped"
+      CreditSpecification:
+        CPUCredits: "standard"
+  IAMRole00maspocb7pbxmasterrole00b087F:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::IAM::Role"
+    DeletionPolicy: "Retain"
+    Properties:
+      Path: "/"
+      MaxSessionDuration: 3600
+      RoleName: "maspoc-b7pbx-master-role"
+      Description: "Created By OpenShift Installer"
+      Policies:
+      - PolicyDocument:
+          Version: "2012-10-17"
+          Statement:
+          - Resource: "*"
+            Action:
+            - "ec2:AttachVolume"
+            - "ec2:AuthorizeSecurityGroupIngress"
+            - "ec2:CreateSecurityGroup"
+            - "ec2:CreateTags"
+            - "ec2:CreateVolume"
+            - "ec2:DeleteSecurityGroup"
+            - "ec2:DeleteVolume"
+            - "ec2:Describe*"
+            - "ec2:DetachVolume"
+            - "ec2:ModifyInstanceAttribute"
+            - "ec2:ModifyVolume"
+            - "ec2:RevokeSecurityGroupIngress"
+            - "elasticloadbalancing:AddTags"
+            - "elasticloadbalancing:AttachLoadBalancerToSubnets"
+            - "elasticloadbalancing:ApplySecurityGroupsToLoadBalancer"
+            - "elasticloadbalancing:CreateListener"
+            - "elasticloadbalancing:CreateLoadBalancer"
+            - "elasticloadbalancing:CreateLoadBalancerPolicy"
+            - "elasticloadbalancing:CreateLoadBalancerListeners"
+            - "elasticloadbalancing:CreateTargetGroup"
+            - "elasticloadbalancing:ConfigureHealthCheck"
+            - "elasticloadbalancing:DeleteListener"
+            - "elasticloadbalancing:DeleteLoadBalancer"
+            - "elasticloadbalancing:DeleteLoadBalancerListeners"
+            - "elasticloadbalancing:DeleteTargetGroup"
+            - "elasticloadbalancing:DeregisterInstancesFromLoadBalancer"
+            - "elasticloadbalancing:DeregisterTargets"
+            - "elasticloadbalancing:Describe*"
+            - "elasticloadbalancing:DetachLoadBalancerFromSubnets"
+            - "elasticloadbalancing:ModifyListener"
+            - "elasticloadbalancing:ModifyLoadBalancerAttributes"
+            - "elasticloadbalancing:ModifyTargetGroup"
+            - "elasticloadbalancing:ModifyTargetGroupAttributes"
+            - "elasticloadbalancing:RegisterInstancesWithLoadBalancer"
+            - "elasticloadbalancing:RegisterTargets"
+            - "elasticloadbalancing:SetLoadBalancerPoliciesForBackendServer"
+            - "elasticloadbalancing:SetLoadBalancerPoliciesOfListener"
+            - "kms:DescribeKey"
+            Effect: "Allow"
+        PolicyName: "maspoc-b7pbx-master-policy"
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+        - Action: "sts:AssumeRole"
+          Effect: "Allow"
+          Principal:
+            Service: "ec2.amazonaws.com"
+          Sid: ""
+      Tags:
+      - Value: "maspoc-b7pbx-master-role"
+        Key: "Name"
+      - Value: "owned"
+        Key: "kubernetes.io/cluster/maspoc-b7pbx"
+  EC2VolumeAttachment00vol029b4a91a5ffd68b800P6HF0:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::EC2::VolumeAttachment"
+    DeletionPolicy: "Retain"
+    Properties:
+      InstanceId: "i-09a0991a84dab2822"
+      VolumeId: "vol-029b4a91a5ffd68b8"
+      Device: "/dev/xvda"
+  EC2Instance00i02b01aa38f7cbdcab00fgCpN:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::EC2::Instance"
+    DeletionPolicy: "Retain"
+    Properties:
+      Tenancy: "default"
+      SecurityGroups:
+      - "terraform-20241029185425262900000002"
+      PrivateIpAddress: "10.0.2.16"
+      UserData: "eyJpZ25pdGlvbiI6eyJjb25maWciOnsibWVyZ2UiOlt7InNvdXJjZSI6Imh0dHBzOi8vYXBpLWludC5tYXNwb2MubWFzZGVtby1pYm0uY29tOjIyNjIzL2NvbmZpZy93b3JrZXIifV19LCJzZWN1cml0eSI6eyJ0bHMiOnsiY2VydGlmaWNhdGVBdXRob3JpdGllcyI6W3sic291cmNlIjoiZGF0YTp0ZXh0L3BsYWluO2NoYXJzZXQ9dXRmLTg7YmFzZTY0LExTMHRMUzFDUlVkSlRpQkRSVkpVU1VaSlEwRlVSUzB0TFMwdENrMUpTVVJGUkVORFFXWnBaMEYzU1VKQlowbEpTVnBPYzA4cmVVVnJSR3QzUkZGWlNrdHZXa2xvZG1OT1FWRkZURUpSUVhkS2FrVlRUVUpCUjBFeFZVVUtRM2hOU21JelFteGliazV2WVZkYU1FMVNRWGRFWjFsRVZsRlJSRVYzWkhsaU1qa3dURmRPYUUxQ05GaEVWRWt3VFZSQmVVOVVSVFJPVkUxM1RXeHZXQXBFVkUwd1RWUkJlVTU2UlRST1ZFMTNUV3h2ZDBwcVJWTk5Ra0ZIUVRGVlJVTjRUVXBpTTBKc1ltNU9iMkZYV2pCTlVrRjNSR2RaUkZaUlVVUkZkMlI1Q21JeU9UQk1WMDVvVFVsSlFrbHFRVTVDWjJ0eGFHdHBSemwzTUVKQlVVVkdRVUZQUTBGUk9FRk5TVWxDUTJkTFEwRlJSVUZ6VnpWVE5rVmhLMDA1TmlzS2IwTkJLM2hSTXpoU2JUUTBjbmRvWTBKcWVXa3ZaMlZ0Y0VoR2NVbFBlbUl6WW5scmJHRm5hVnA0UWtNeWRIZEdhalJXZWpkR2VtTjJTek5tWmtkWFpBcFlabHBrTTNkQ2RYWk9OblJNWjFnM01FMVFjQ3RVUkZSNGVrRlhRVVV2YVdnM1ZraFRWR3RHZDBoV2FtRlVXV3RuU1RKWWVqaHVVMFIzTUdwdE5sbHpDbk4zVVM5V1kxWkVibWxQUjFKSlV6SjVVSGwzYUU4MFZEQkxaV0pGU0c5aGIwb3JkVmN4ZGtsMU5rYzVTMmhJYTFkVVlUVXJVRTg0U1c1QmIxQmxTelVLWnpKWVJ6aGlRVmhJZGtJNFNFMUZZMHMwWkVvdlMxZzFaVzFDSzBKTWRqY3pRazFoY2tOU0wyTnlUbkpxYW01SU0ya3hXRGxaTjNCQlNXWkNiSEpMUXdvMmNrOUJlVUY1VkhKVlRIcFdVSEJzVWpSTVVGbGlkRWxXSzFReVYybE1VMGxMWmtORUsxbFNkSHBWWWtkNmVFbE1WMVZWYkV4aFNqUkNVelJVZFZGakNqTm1ZbXhWV214bWIxRkpSRUZSUVVKdk1FbDNVVVJCVDBKblRsWklVVGhDUVdZNFJVSkJUVU5CY1ZGM1JIZFpSRlpTTUZSQlVVZ3ZRa0ZWZDBGM1JVSUtMM3BCWkVKblRsWklVVFJGUm1kUlZVRmtZMWx1UVhvek9XTm1WRGhvWTNsT2JDdE1abmRNVDJ0VE9IZEVVVmxLUzI5YVNXaDJZMDVCVVVWTVFsRkJSQXBuWjBWQ1FVc3ZTbG96Vm0xRmRGVnJVRzFQUlhwVVYyaFFTbGhSVHk5dmEzVkdPRUo1ZWl0Nk4xZEdaVVZIZVd4c1YzY3lNSE4wYUdOclUwcE1TM0ExQ25odGRUSmlkSEJMVVZOblYwOXZTeTh3ZVdkTlQzVm9RWGxrV1ZONFdWVTRXR0YwYm1OVVprNUpPVWwwVnpsRWJsZFpWQzkxY1hSQmIxSlNWRWxYTVRnS09DOU1Ta2Q2WlZGaU9XWmlSRmxvVFcxM2NFMXBZakV3VkhoSllYWnRja0pRY0RabmJHMTJOWGg1WVdOclRrVmtPVFZYV0VnMkt6QjRWU3RMVWxNeFVBcFpRMjVXVURsS2FVRlBiVllyTHlzM2N5ODFURk5qTld0S2FHZzRWR2RsWlZKUFduVkRjeXN6UzJGUmVrbHpWWGhQVkZaeVNtRk1TV2x6WTBoTlVqWTFDbWRzUVVwNVJuWXhka00wYVUxTGEybzJMelZ5VXpOM1ZFZExVekV5UW1SMk5uUkZUM3BVU1dsWmMzWkJOVFJ4ZWpKWlIzTXJSRVZaU0dRdmNUWlljMVFLYWtRck56WlphR0pyT0RBeU16ZDBhR3h5T1dsUlduQm1TVUozUFFvdExTMHRMVVZPUkNCRFJWSlVTVVpKUTBGVVJTMHRMUzB0Q2c9PSJ9XX19LCJ2ZXJzaW9uIjoiMy4yLjAifX0="
+      BlockDeviceMappings:
+      - Ebs:
+          SnapshotId: ""
+          VolumeType: "gp3"
+          KmsKeyId:
+            Fn::GetAtt:
+            - "KMSKey007abeefb8067347208dced7e0fc512d1000mHi2M"
+            - "Arn"
+          Encrypted: true
+          Iops: 3000
+          VolumeSize: 2048
+          DeleteOnTermination: false
+        DeviceName: "/dev/xvdab"
+      - Ebs:
+          SnapshotId: "snap-01720b82512455a1c"
+          VolumeType: "gp3"
+          KmsKeyId:
+            Fn::GetAtt:
+            - "KMSKey007abeefb8067347208dced7e0fc512d1000mHi2M"
+            - "Arn"
+          Encrypted: true
+          Iops: 3000
+          VolumeSize: 120
+          DeleteOnTermination: true
+        DeviceName: "/dev/xvda"
+      - Ebs:
+          SnapshotId: ""
+          VolumeType: "gp3"
+          KmsKeyId:
+            Fn::GetAtt:
+            - "KMSKey007abeefb8067347208dced7e0fc512d1000mHi2M"
+            - "Arn"
+          Encrypted: true
+          Iops: 3000
+          VolumeSize: 50
+          DeleteOnTermination: false
+        DeviceName: "/dev/xvdaa"
+      IamInstanceProfile:
+        Ref: "IAMInstanceProfile00maspocb7pbxworkerprofile00Xaqx9"
+      SubnetId:
+        Ref: "EC2Subnet00subnet0a476f6ccc1bac41c00IAx6N"
+      EbsOptimized: false
+      Volumes:
+      - VolumeId: "vol-03bb74849ef2a0821"
+        Device: "/dev/xvdab"
+      - VolumeId: "vol-005e2f3d1b29a8ac0"
+        Device: "/dev/xvda"
+      - VolumeId: "vol-0a2a75f6843fe8ed9"
+        Device: "/dev/xvdaa"
+      NetworkInterfaces:
+      - PrivateIpAddresses:
+        - PrivateIpAddress: "10.0.2.16"
+          Primary: true
+        SecondaryPrivateIpAddressCount: 0
+        DeviceIndex: "0"
+        GroupSet:
+        - Ref: "EC2SecurityGroup00sg0f0162887ec72887100xEoae"
+        Ipv6Addresses: []
+        SubnetId:
+          Ref: "EC2Subnet00subnet0a476f6ccc1bac41c00IAx6N"
+        AssociatePublicIpAddress: false
+        NetworkInterfaceId:
+          Ref: "EC2NetworkInterface00eni073aff06e86ddd17100CmAcO"
+        DeleteOnTermination: true
+      ImageId: "ami-00d973a79002d742b"
+      InstanceType: "m5.4xlarge"
+      Monitoring: false
+      Tags:
+      - Value: "maspoc-b7pbx-worker-us-east-1c-x6d94"
+        Key: "Name"
+      - Value: "owned"
+        Key: "kubernetes.io/cluster/maspoc-b7pbx"
+      InstanceInitiatedShutdownBehavior: "stop"
+      CpuOptions:
+        ThreadsPerCore: 2
+        CoreCount: 8
+      AvailabilityZone: "us-east-1c"
+      PrivateDnsNameOptions:
+        EnableResourceNameDnsARecord: false
+        HostnameType: "ip-name"
+        EnableResourceNameDnsAAAARecord: false
+      SecurityGroupIds:
+      - "sg-0f0162887ec728871"
+      DisableApiTermination: false
+      SourceDestCheck: true
+      PlacementGroupName: ""
+      VpcId: "vpc-033689ea0213830c0"
+      State:
+        Code: "80"
+        Name: "stopped"
+      CreditSpecification:
+        CPUCredits: "standard"
+  EC2VolumeAttachment00vol009aec7bab0474eda00NsOs5:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::EC2::VolumeAttachment"
+    DeletionPolicy: "Retain"
+    Properties:
+      InstanceId: "i-01ec83d0a2cf89422"
+      VolumeId: "vol-009aec7bab0474eda"
+      Device: "/dev/xvdab"
+  EC2NetworkInterface00eni02cad60eacda37fa1000rT3p:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::EC2::NetworkInterface"
+    DeletionPolicy: "Retain"
+    Properties:
+      Description: ""
+      PrivateIpAddress: "10.0.1.217"
+      PrivateIpAddresses:
+      - PrivateIpAddress: "10.0.1.217"
+        Primary: true
+      SecondaryPrivateIpAddressCount: 0
+      Ipv6PrefixCount: 0
+      Ipv4Prefixes: []
+      Ipv4PrefixCount: 0
+      GroupSet:
+      - "sg-0f0162887ec728871"
+      Ipv6Prefixes: []
+      SubnetId:
+        Ref: "EC2Subnet00subnet0b9366d5af8b353ea00mreUT"
+      SourceDestCheck: true
+      InterfaceType: "interface"
+      Tags: []
+  IAMRole00maspocb7pbxworkerrole00oPQqd:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::IAM::Role"
+    DeletionPolicy: "Retain"
+    Properties:
+      Path: "/"
+      MaxSessionDuration: 3600
+      RoleName: "maspoc-b7pbx-worker-role"
+      Policies:
+      - PolicyDocument:
+          Version: "2012-10-17"
+          Statement:
+          - Resource: "*"
+            Action:
+            - "ec2:DescribeInstances"
+            - "ec2:DescribeRegions"
+            Effect: "Allow"
+        PolicyName: "maspoc-b7pbx-worker-policy"
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+        - Action: "sts:AssumeRole"
+          Effect: "Allow"
+          Principal:
+            Service: "ec2.amazonaws.com"
+          Sid: ""
+      Tags:
+      - Value: "maspoc-b7pbx-worker-role"
+        Key: "Name"
+      - Value: "owned"
+        Key: "kubernetes.io/cluster/maspoc-b7pbx"
